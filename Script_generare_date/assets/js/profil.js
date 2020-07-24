@@ -96,6 +96,8 @@ function run() {
         this.kato[4]=this.aerlive[0].pm25_data
         this.kato[5]=this.aerlive[0].so2_data
         
+        // for(let i=0;i<this.kato.)
+        
         this.JSONToCSVConvertor2(this.kato[0], "co_data", true,"aerlive_co_data")
 
         this.JSONToCSVConvertor2(this.kato[1], "ica_data", true,"aerlive_ica_data")
@@ -105,6 +107,7 @@ function run() {
         this.JSONToCSVConvertor2(this.kato[5], "so2_data", true,"aerlive_so2_data")
         
       },
+      
 
       JSONToCSVConvertor2: function (JSONData, ReportTitle, ShowLabel,numefisier) {
         //If JSONData is not an object then JSON.parse will parse the JSON string in an Object
