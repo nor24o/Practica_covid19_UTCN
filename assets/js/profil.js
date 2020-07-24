@@ -15,7 +15,6 @@ function run() {
     },
     created: function () {
 
-      this.usersService = users();
 
 
         axios.get('https://covid19.geo-spatial.org/api/dashboard/getCasesByCounty').then(res => {
