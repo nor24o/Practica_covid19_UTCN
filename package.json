@@ -1,0 +1,16 @@
+{
+  "name": "client",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "live-server --port=4200",
+    "dev": "live-server --host=192.168.100.7 --port=8080"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "live-server": "^1.2.1"
+  },
+  "devDependencies": {
+    "boostrap": "^2.0.0",
+    "nodemon": "^2.0.3"
+  }
+}

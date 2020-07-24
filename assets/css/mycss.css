@@ -1,0 +1,336 @@
+.nav-link {
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+#h4{
+    font-size: 1.5;
+}
+
+.my-button:hover {
+    background-color: rgb(235, 241, 241);
+    cursor: pointer;
+}
+
+.pretprodus {
+    float: left;
+    padding-left: initial;
+    margin-left: auto;
+    text-align: left;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.stanga {
+    float: left;
+    text-align: left;
+}
+
+.dreapta {
+    float: right;
+    padding-left: initial;
+    text-align: right;
+}
+
+.clean {
+    background-color: rgb(248, 132, 132);
+}
+
+
+.nav-link:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -10px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(75% + 4px);
+    animation: glowing 50s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.nav-link:active {
+    color: #000
+}
+
+.nav-link:active:after {
+    background: transparent;
+}
+
+.nav-link:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 180% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.video-hat {
+    width: 100%;
+    height: auto;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    width: 100%;
+    background-size: cover;
+}
+
+.fa-arrow-alt-circle-up {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: auto;
+    max-height: auto;
+}
+
+.gotopbtn {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 50px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    size: 3ex;
+    font-size: 5rem;
+    color: coral;
+    z-index: 1;
+}
+
+.carousel slide {
+    z-index: -1;
+}
+
+.icon-gps {
+    font-size: 2rem;
+}
+
+.registration {
+    top: 0px;
+    z-index: -1;
+}
+
+.login {
+    top: 0px;
+    z-index: -1;
+}
+
+.text-info {
+    color: black !important;
+}
+
+.feature-box .icon {
+    display: block;
+    margin: auto;
+    position: relative;
+    top: -10px;
+}
+
+h4 {
+    text-align: center;
+}
+
+.feature-box p {
+    text-align: center;
+}
+
+.icon-social-facebook {
+    display: block;
+    margin: auto;
+    width: 30px;
+    position: relative;
+    font-size: 3rem;
+}
+
+.clean-block.clean-cart .items .product .product-image {
+    margin: auto;
+}
+
+.clean-block.product-name {
+    font-size: 2em;
+    margin: auto;
+    font-stretch: condensed;
+    line-height: normal;
+}
+
+.carousel-control-next-icon {
+    width: 500px;
+    height: 500px;
+}
+
+.product-specs {
+    font-size: 1.25rem;
+}
+
+.pret-style {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    text-align: right;
+}
+
+.navbar {
+    margin-top: 0px;
+    padding-top: 5px;
+}
+
+.pretprodus:hover {
+    border-bottom: 4px solid #c51515;
+}
+
+.pretprodus {
+    border-bottom: 4px solid #30b5d6;
+}
+
+.toast {
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+  }
+
+.toast {
+    z-index: 50;
+    padding-top: 45px;
+  }
+  .hide:hover {
+    opacity: 10;
+    
+   }
+   .pretprodus .hover {
+    position: absolute;
+    top: 0;
+    height: auto;
+    width: auto;
+    opacity: 40;
+    transition: .1s ease;
+    
+   }
+   /* New overlay appearance on hover */
+   .overlay-image:hover .hover {
+    opacity: 80;
+   }
+   .overlay-image .normal {
+    transition: .3s ease;
+   }
+   .overlay-image:hover .normal {
+ 
+    background-color: rgba(102, 57, 57, 0.096);
+    
+   }
+   .overlay-image .hover {
+    background-color: rgba(105, 105, 105, 0.5);
+   }
+
+
+   /* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+   
+    margin-left: 250px; /* Divide value of min-width by 2 */
+    background-color: rgb(0, 66, 92); /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+  }
+  
+  /* Show the snackbar when clicking on a button (class added with JavaScript) */
+  #snackbar.show {
+    visibility: visible; /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  /* Animations to fade the snackbar in and out */
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+
+.value_left{
+    display: inline-flex;
+    float:right;
+}
+
+.wavesAbsolutPosition{
+	margin-top: -4%;
+}
+@media (min-width: 1600px) {
+.wavesAbsolutPosition{
+  margin-left: 1%;
+}
+}	
+@media (max-width: 1590px) {
+.wavesAbsolutPosition{
+  margin-left: -2%;
+}
+}	
+@media (max-width: 1290px) {
+.wavesAbsolutPosition{
+  margin-left: -5%;
+}
+}	
+@media (max-width: 1090px) {
+.wavesAbsolutPosition{
+  margin-left: -10%;
+}
+}	
