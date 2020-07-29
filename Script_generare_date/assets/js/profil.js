@@ -21,7 +21,7 @@ function run() {
 
     },
     created: function () {
-      fetch("/data.json")
+      fetch("/values.json")
       .then(r => r.json())
       .then(json => {
       
@@ -277,6 +277,32 @@ function run() {
             window.URL.revokeObjectURL(url);
           }, 0);
         }
+      },
+      ex8:function(){
+        var obj3=[[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
+        var obj2=[]
+        var force_countries = ['Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Republic of Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary','Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Netherlands', 'Poland', 'Portugal', 'Romania','Slovakia', 'Slovenia', 'Spain', 'Sweden','Russia','United Kingdom','Turkey','Monaco','Liechtenstein','Cyprus', 'Montenegro','Albania','Norway','Bosnia and Herzegovina','Moldova','Serbia','Ukraine','Belarus']
+        var obj=this.json
+        var arr = Array(force_countries.length).fill(null).map(() => Array(300));
+        console.log(arr)
+        console.log(obj[0])
+        var y=0
+        for(let j=0;j<force_countries.length;j++){
+        for(let i=0;i<obj[0].length;i++){
+          if(obj[0][i].location_label===force_countries[j]){
+        //    console.log(obj[0][i].location_label)
+            if(obj[0][i].date==="7/28/20"){
+              y=0
+            }
+           
+         //   obj2.push.apply({location:obj[0][i].location_label,date:obj[0][i].date,absolute_deaths:obj[0][i].absolute_deaths})
+         arr[j][y]=({location:obj[0][i].location_label,date:obj[0][i].date,absolute_deaths:obj[0][i].absolute_deaths})
+         y++
+          }
+        }
+      }
+      console.log(arr)
+         
       },
 
 
