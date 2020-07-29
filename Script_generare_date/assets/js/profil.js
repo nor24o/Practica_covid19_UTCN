@@ -12,6 +12,8 @@ function run() {
       sec: [],
       itt: [],
       kato: [],
+      json:[],
+      europa:[]
 
 
 
@@ -19,6 +21,12 @@ function run() {
 
     },
     created: function () {
+      fetch("/data.json")
+      .then(r => r.json())
+      .then(json => {
+      
+        this.json=json;
+      });
 
 
 
@@ -47,7 +55,7 @@ function run() {
 
       axios.get('https://covid19.geo-spatial.org/api/dashboard/getDailyCaseReport').then(res => {
         this.getDailyCaseReport.push(res.data)
-        //    console.log(res.data)
+            console.log(res.data)
 
       });
 
@@ -86,22 +94,23 @@ function run() {
 
         for (let i = 0; i < sec.length; i++)
           obj[i] = JSON.parse(sec[i]);
-
+        
         this.JSONToCSVConvertor2(obj, "DailyCases", true, "Cazuri_cazuri_tot")
       },
       ex6: function () {
         console.log(this.getCasesByAgeGroup[0].data)
         var obj = []
         var sec = []
-        for (let i = 0; i < this.getCasesByAgeGroup.length; i++)
-          sec[i] = (JSON.stringify(this.getCasesByAgeGroup[i]))
-        console.log(sec)
-        for (let i = 0; i < sec.length; i++)
-          obj[i] = JSON.parse(sec[i]);
-        this.download(obj, 'Cazuri_Raport_crestere.csv', 'text/csv')
+        
+        for (let i = 0; i < this.getCasesByAgeGroup.length; i++){
+          sec.push({"0_9":this.getCasesByAgeGroup[i].data["0-9"],"10_19":this.getCasesByAgeGroup[i].data["10-19"],"20_29":this.getCasesByAgeGroup[i].data["20-29"],"30_39":this.getCasesByAgeGroup[i].data["30-39"],"40_49":this.getCasesByAgeGroup[i].data["40-49"],
+          "50_59":this.getCasesByAgeGroup[i].data["50-59"],"60_69":this.getCasesByAgeGroup[i].data["60-69"],"70_79":this.getCasesByAgeGroup[i].data["70-79"],">80":this.getCasesByAgeGroup[i].data[">80"]})
+
+        }
+        this.JSONToCSVConvertor2(sec, "FrecventaGrupeDeVarsta", true, "Frecventa_pe_grupe_de_varsta")
+        console.log(sec[0])
       },
       ex7: function () {
-        var array = { R: [], R25: [], R75: [], R05: [], R95: [], R025: [], R975: [] }
         var te = []
         var R = [1.89, 1.87, 1.85, 1.83, 1.81, 1.79, 1.77, 1.75, 1.72, 1.7, 1.68, 1.65, 1.63, 1.61, 1.59, 1.58, 1.56, 1.55, 1.53, 1.51, 1.48, 1.45, 1.42, 1.38, 1.35, 1.31, 1.28, 1.25, 1.22, 1.19, 1.17, 1.14, 1.12, 1.1, 1.08, 1.07, 1.05, 1.04, 1.03, 1.02, 1.01, 1, 0.99, 0.98, 0.98, 0.97, 0.97, 0.97, 0.96, 0.96, 0.96, 0.96, 0.96, 0.96, 0.96, 0.95, 0.95, 0.95, 0.95, 0.95, 0.94, 0.94, 0.93, 0.92, 0.91, 0.9, 0.89, 0.87, 0.86, 0.85, 0.85, 0.85, 0.86, 0.86, 0.87, 0.89, 0.9, 0.91, 0.93, 0.94, 0.95, 0.97, 0.98, 0.99, 1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.07, 1.08, 1.1, 1.12, 1.13, 1.14, 1.15, 1.16, 1.16, 1.17, 1.17, 1.17, 1.17, 1.17, 1.16, 1.15, 1.14, 1.14, 1.13, 1.12, 1.12, 1.11, 1.11, 1.12, 1.12, 1.12, 1.13, 1.13, 1.14, 1.14, 1.15, 1.16, 1.16, 1.17, 1.18, 1.18, 1.19, 1.19, 1.19, 1.19, 1.19, 1.18, 1.18, 1.18, 1.17, 1.17, 1.17, 1.17, 1.16, 1.16, 1.16, 1.15, 1.15]
         var R25 = [1.78, 1.77, 1.75, 1.74, 1.74, 1.72, 1.7, 1.68, 1.67, 1.65, 1.62, 1.61, 1.59, 1.57, 1.56, 1.55, 1.53, 1.52, 1.5, 1.48, 1.46, 1.43, 1.4, 1.36, 1.33, 1.29, 1.26, 1.23, 1.2, 1.17, 1.15, 1.13, 1.11, 1.09, 1.07, 1.05, 1.04, 1.03, 1.02, 1.01, 1, 0.99, 0.98, 0.97, 0.97, 0.96, 0.96, 0.95, 0.95, 0.95, 0.95, 0.95, 0.94, 0.95, 0.94, 0.94, 0.94, 0.94, 0.93, 0.93, 0.93, 0.93, 0.92, 0.91, 0.9, 0.89, 0.87, 0.86, 0.85, 0.84, 0.84, 0.84, 0.84, 0.85, 0.86, 0.87, 0.88, 0.9, 0.91, 0.92, 0.94, 0.95, 0.96, 0.98, 0.99, 0.99, 1, 1.01, 1.02, 1.04, 1.05, 1.07, 1.09, 1.1, 1.11, 1.13, 1.13, 1.14, 1.15, 1.15, 1.16, 1.16, 1.16, 1.15, 1.14, 1.14, 1.13, 1.12, 1.11, 1.11, 1.1, 1.1, 1.1, 1.1, 1.11, 1.11, 1.11, 1.12, 1.12, 1.13, 1.14, 1.14, 1.15, 1.16, 1.16, 1.17, 1.17, 1.18, 1.18, 1.18, 1.18, 1.17, 1.17, 1.17, 1.16, 1.16, 1.16, 1.15, 1.15, 1.15, 1.14, 1.13, 1.12]
@@ -120,18 +129,19 @@ function run() {
         }
         this.JSONToCSVConvertor2(te, "Numarul de reproductie R", true, "Numarul de reproductie R")
       },
+
+      
       ex2: function () {
         console.log(this.getDailyCaseReport[0].data)
-        var obj = []
         var sec = []
-        var test = []
-        for (let i = 0; i < this.getDailyCaseReport[0].data.data.length; i++)
-          sec[i] = (JSON.stringify(this.getDailyCaseReport[0].data.data[i]))
-
-        for (let i = 0; i < sec.length; i++)
-          obj[i] = JSON.parse(sec[i]);
-
-        this.JSONToCSVConvertor_ex1(obj, "Ziua_fata_de_cazuri_cumulative", true, "Cazuri_Ziua_fata_de_cazuri_cumulative")
+        for (let i = 0; i < this.getDailyCaseReport[0].data.data.length; i++){
+          sec.push({"data":this.getDailyCaseReport[0].data.data[i]["day_case"],"data(zile)":this.getDailyCaseReport[0].data.data[i]["day_no"]
+          ,"Cazuri":this.getDailyCaseReport[0].data.data[i]["total_case"]
+          ,"Cazuri_active":this.getDailyCaseReport[0].data.data[i]["total_case"]-this.getDailyCaseReport[0].data.data[i]["total_healed"]-this.getDailyCaseReport[0].data.data[i]["total_dead"]
+          ,"Decedati":this.getDailyCaseReport[0].data.data[i]["total_dead"],"vindecati":this.getDailyCaseReport[0].data.data[i]["total_healed"]
+          })
+        }
+        this.JSONToCSVConvertor_ex1(sec, "Ziua_fata_de_cazuri_cumulative", true, "Cazuri_Ziua_fata_de_cazuri_cumulative")
       },
       ex5: function () {
         var sec = []
@@ -159,35 +169,35 @@ function run() {
         );
 
         this.aerlive[0].so2_data.forEach(function (o, index) {
-          obj[1][index] = ( o.y )
+          obj[1][index] = ( Math.round(o.y ))
 
         }
         );
 
         this.aerlive[0].ica_data.forEach(function (o, index) {
-          obj[2][index] = ( o.y)
+          obj[2][index] = ( Math.round(o.y))
 
         }
         );
         this.aerlive[0].no2_data.forEach(function (o, index) {
-          obj[3][index] = (o.y )
+          obj[3][index] = (Math.round(o.y ))
 
         }
         );
 
         this.aerlive[0].ica_data.forEach(function (o, index) {
-          obj[4][index] = (o.y )
+          obj[4][index] = (Math.round(o.y ))
 
         }
         );
         this.aerlive[0].so2_data.forEach(function (o, index) {
-          obj[5][index] = (o.y )
+          obj[5][index] = (Math.round(o.y ))
 
         }
         );
 
         this.aerlive[0].ica_data.forEach(function (o, index) {
-          obj[6][index] = ( o.y )
+          obj[6][index] = ( Math.round(o.y ))
 
         }
         );
@@ -200,25 +210,7 @@ function run() {
             , "Pm10": JSON.stringify(obj[4][i]), "Pm2.5": JSON.stringify(obj[5][i]), "So2": JSON.stringify(obj[6][i])
           })
         }
-/*
-              if (this.aerlive[0].co_data[i] == 'x') 
-              console.log(this.aerlive[0].co_data)
-           //   return arr[i];
-           //   obj[i]=({"data(zile)":JSON.stringify(this.aerlive[0].co_data['x'])})
-    
-     
-    
-    
-          
-              
-            // for(let i=0;i<this.kato.)
-            
-            this.JSONToCSVConvertor2(this.kato[0], "co_data", true,"_co_data")
-    
-            this.JSONToCSVConvertor2(this.kato[1], "ica_data", true,"aerlive_ica_data")
-            this.JSONToCSVConvertor2(this.kato[2], "no2_data", true,"aerlive_no2_data")
-            this.JSONToCSVConvertor2(this.kato[3], "pm10_data", true,"aerlive_pm10_data")
-            this.JSONToCSVConvertor2(this.kato[4], "pm25_data", true,"aerlive_pm25_data")*/
+
            this.JSONToCSVConvertor2(sec, "Calitate_aer", true,"Calitate_aer")
             
       },
@@ -226,7 +218,8 @@ function run() {
         var ress = this.getDailyCaseReport[0].data.data
         var sec = []
         var ot = []
-        console.log(ress[7]['total_case'])
+        var obj=[]
+        console.log(ress[7])
         for (let i = 0; i < ress.length; i++) {
           sec[i] = ress[i]['total_case']
         }
@@ -241,10 +234,15 @@ function run() {
           }
 
         }
-        console.log(ot)
-        this.download(ot, 'Cazuri_Raport_crestere.csv', 'text/csv')
+        for(let i=0;i<ot.length;i++)
+        obj.push({data_calendaristica:ress[i]['day_case'],data:ress[i]['day_no'],raport:ot[i].toFixed(2)})
+
+        console.log(obj)
+        this.JSONToCSVConvertor2(obj, "Calitate_aer", true,"Calitate_aer")
+     //   this.download(ot, 'Cazuri_Raport_crestere.csv', 'text/csv')
 
       },
+
       download: function (data, filename, type) {
         var file = new Blob([data], { type: type });
         if (window.navigator.msSaveOrOpenBlob) // IE10+
