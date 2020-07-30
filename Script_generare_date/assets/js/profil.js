@@ -237,7 +237,7 @@ function run() {
         }
         );
 
-        this.aerlive[0].so2_data.forEach(function (o, index) {
+        this.aerlive[0].co_data.forEach(function (o, index) {
           obj[1][index] = ( Math.round(o.y ))
 
         }
@@ -254,18 +254,18 @@ function run() {
         }
         );
 
-        this.aerlive[0].ica_data.forEach(function (o, index) {
+        this.aerlive[0].pm10_data.forEach(function (o, index) {
           obj[4][index] = (Math.round(o.y ))
 
         }
         );
-        this.aerlive[0].so2_data.forEach(function (o, index) {
+        this.aerlive[0].pm25_data.forEach(function (o, index) {
           obj[5][index] = (Math.round(o.y ))
 
         }
         );
 
-        this.aerlive[0].ica_data.forEach(function (o, index) {
+        this.aerlive[0].so2_data.forEach(function (o, index) {
           obj[6][index] = ( Math.round(o.y ))
 
         }
