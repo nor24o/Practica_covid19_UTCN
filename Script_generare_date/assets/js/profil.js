@@ -13,7 +13,14 @@ function run() {
       itt: [],
       kato: [],
       json:[],
-      europa:[]
+      europa:[],
+      waze_bu:[],
+      waze_tim:[],
+      waze_brasov:[],
+      waze_cluj:[],
+      waze_costanta:[],
+      waze_iasi:[],
+      frontiera:[]
 
 
 
@@ -34,6 +41,46 @@ function run() {
         //       console.log(res.data);
 
       });
+      axios.get('https://covid19.geo-spatial.org/external/wazero/bu.2.json').then(res => {
+      //      console.log(res.data);
+            this.waze_bu=res.data;
+            
+          });
+
+          axios.get('https://covid19.geo-spatial.org/external/wazero/Timisoara.2.json').then(res => {
+     //       console.log(res.data);
+            this.waze_tim=res.data;
+            
+          });
+          axios.get('https://covid19.geo-spatial.org/external/wazero/Cluj-Napoca.2.json').then(res => {
+      //      console.log(res.data);
+            this.waze_cluj=res.data;
+            
+          });
+          axios.get('https://covid19.geo-spatial.org/external/wazero/Brasov.2.json').then(res => {
+      //      console.log(res.data);
+            this.waze_brasov=res.data;
+            
+          });
+          axios.get('https://covid19.geo-spatial.org/external/wazero/Constanta.2.json').then(res => {
+      //      console.log(res.data);
+            this.waze_costanta=res.data;
+            
+          });
+          axios.get('https://covid19.geo-spatial.org/external/wazero/Iasi.2.json').then(res => {
+        //    console.log(res.data);
+            this.waze_iasi=res.data;
+            
+          });
+
+          axios.get('https://covid19.geo-spatial.org/external/charts_vasile/assets/json/mobilitate_frontiera.json').then(res => {
+        //    console.log(res.data);
+            this.frontiera=res.data;
+            
+          });
+          https://covid19.geo-spatial.org/external/wazero/Cluj-Napoca.2.json
+          
+
       /*    axios.get('https://covid19.geo-spatial.org/api/dashboard/getDeadCasesByCounty').then(res => {
             console.log(res.data);
             
@@ -44,7 +91,7 @@ function run() {
          });*/
       axios.get('https://covid19.geo-spatial.org/api/dashboard/getDailyCases').then(res => {
         this.getDailyCases.push(res.data)
-        console.log(res.data.data)
+     //   console.log(res.data.data)
 
       });
       axios.get('https://covid19.apps.sage.ieat.ro/aerlive.avg.json').then(res => {
@@ -55,7 +102,7 @@ function run() {
 
       axios.get('https://covid19.geo-spatial.org/api/dashboard/getDailyCaseReport').then(res => {
         this.getDailyCaseReport.push(res.data)
-            console.log(res.data)
+       //     console.log(res.data)
 
       });
 
@@ -97,6 +144,26 @@ function run() {
         
         this.JSONToCSVConvertor2(obj, "DailyCases", true, "Cazuri_cazuri_tot")
       },
+      ex9:function(){
+        this.JSONToCSVConvertor2(this.frontiera, "Frontiera", true, "Frontiera")
+
+
+      },
+      ex10:function(){
+        var obj=[]
+          for(let i=0;i<this.waze_tim.length;i++){
+
+          /*  if(this.waze_bu[i]["value"]==undefined||this.waze_tim[i]["value"]==undefined||this.waze_costanta[i]["value"]==undefined||
+            this.waze_iasi[i]["value"]==undefined||this.waze_cluj[i]["value"]==undefined||this.waze_brasov[i]["value"]==undefined)
+            {}
+            else*/
+            obj.push({"bucuresti":this.waze_bu[i]["value"],"timisoara":this.waze_tim[i]["value"]})
+          }
+          console.log(obj)
+      }
+      
+
+      ,
       ex6: function () {
         console.log(this.getCasesByAgeGroup[0].data)
         var obj = []
