@@ -151,15 +151,17 @@ function run() {
       },
       ex10:function(){
         var obj=[]
-          for(let i=0;i<this.waze_tim.length;i++){
+          for(let i=0;i<this.waze_bu.length;i++){
 
           /*  if(this.waze_bu[i]["value"]==undefined||this.waze_tim[i]["value"]==undefined||this.waze_costanta[i]["value"]==undefined||
             this.waze_iasi[i]["value"]==undefined||this.waze_cluj[i]["value"]==undefined||this.waze_brasov[i]["value"]==undefined)
             {}
             else*/
-            obj.push({"bucuresti":this.waze_bu[i]["value"],"timisoara":this.waze_tim[i]["value"]})
+            obj.push({"bucuresti":this.waze_bu[i]["value"],"timisoara":this.waze_tim[i]["value"],"costanta":this.waze_costanta[i]["value"],
+            "iasi":this.waze_iasi[i]["value"],"cluj_napoca":this.waze_cluj[i]["value"],"brasov":this.waze_brasov[i]["value"]})
           }
-          console.log(obj)
+     //    console.log(obj)
+          this.JSONToCSVConvertor2(obj, "waze", true, "waze")
       }
       
 
