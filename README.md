@@ -1,5 +1,28 @@
 ## Practica_covid19_UTCN
 
++ Cornestean
+
+- Spania
+- Italia
+- Marea Britanie 
+
++ Csak
+
+- Franta
+- Elvetia
+- Germania 
+
++ Horvat
+
++ Austria
++ Ungaria
++ Israel 
+
++ Kato
+
+- SUA
+- Portugalia
+
 # pentru simpla rulare
 +  start.bat
 ------------
