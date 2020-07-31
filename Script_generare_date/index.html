@@ -2,58 +2,60 @@
 <html>
 
 <head>
-
+    <link rel="stylesheet" href="/style.css">
     <script type="text/javascript" src="/assets/libs/vue.js"></script>
     <script type="text/javascript" src="/assets/libs/axios.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/regression/2.0.1/regression.min.js"></script>
+    
 
 </head>
 
 <body>
    <div id="profil">
-       <div style="display: flex;background-color: aquamarine; padding: 10px; width: auto;">
-    <button v-on:click="ex1()">Cazuri_cazuri_tot</button>&nbsp;
+       
+       <div class="cazuri">
+    <button v-on:click="ex1()">Cazuri_cazuri_tot</button>&nbsp;<button v-on:click="ex2()">Cazuri_Ziua_fata_de_cazuri_cumulative</button>&nbsp;<button v-on:click="ex4()">Cazuri_Ziua_fata_de_cazuri/numar de cazuri totale (rata de crestere)</button>&nbsp;
        </div>
-       <div style="display: flex;background-color: aquamarine; padding: 10px; width: auto;">
-           <button v-on:click="ex2()">Cazuri_Ziua_fata_de_cazuri_cumulative</button>&nbsp;
-       </div>
-    <div style="display: flex;background-color: aquamarine; padding: 10px; width: auto;">
-        <button v-on:click="ex4()">Cazuri_Ziua_fata_de_cazuri/numar de cazuri totale (rata de crestere)</button>&nbsp;
-    </div>
-    <div style="display: flex;background-color: aquamarine; padding: 10px; width: auto;">
-        <button v-on:click="ex6()">Frecvența pe grupe de vârstă</button>&nbsp;
+
+    <div class="cazuri">
+        <button v-on:click="ex6()">Frecvența pe grupe de vârstă</button>&nbsp; <button v-on:click="ex7()">Numarul de reproductie R</button>&nbsp;
     </div>
 
-    <div style="display: flex;background-color: aquamarine; padding: 10px; width: auto;">
-        <button v-on:click="ex7()">Numarul de reproductie R</button>&nbsp;
-    </div>
+
 
 
     
     
     
        
-   <div style="display: flex;background-color: rgb(0, 179, 119); padding: 10px;">
+   <div class="calitateaer">
        <button v-on:click="ex3()">Calitate_aer</button>
    </div>
 
-   <div style="display: flex;background-color: rgb(0, 179, 119); padding: 10px;">
+   <div class="decese">
     <button v-on:click="ex5()">Decese Pe Judete</button>
 </div>
 
-<div style="display: flex;background-color: rgb(7, 97, 67); padding: 10px; width: auto;">
+<div class="decese">
     <button style="color: red;" v-on:click="ex8()">Decese pe europa(partial functional)</button>&nbsp;
 </div>
 
-<div style="display: flex;background-color: rgb(13, 36, 39); padding: 10px; width: auto;">
-    <button  v-on:click="ex9()">Frontiera</button>&nbsp;
+<div class="waze">
+    <button  v-on:click="ex9()">Frontiera</button>&nbsp;<button  v-on:click="ex10()">Waze</button>&nbsp;
 </div>
 
-<div style="display: flex;background-color: rgb(13, 36, 39); padding: 10px; width: auto;">
-    <button  v-on:click="ex10()">Waze</button>&nbsp;
+
+
+<div class="tempapa">
+    <button  v-on:click="ex11()">Temperatura_apei</button>&nbsp;
 </div>
 
     
-
+   <div > 
+       <button class="dezz" type="button" >
+           Horvat Norbert
+       </button>
+   </div>
    </div>
     <script type="module" src="/assets/js/profil.js"></script>
 

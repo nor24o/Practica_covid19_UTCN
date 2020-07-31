@@ -20,7 +20,8 @@ function run() {
       waze_cluj:[],
       waze_costanta:[],
       waze_iasi:[],
-      frontiera:[]
+      frontiera:[],
+      temp_apa:[]
 
 
 
@@ -73,12 +74,15 @@ function run() {
             
           });
 
+
+      //        assets/json/sst_bs.json
+
           axios.get('https://covid19.geo-spatial.org/external/charts_vasile/assets/json/mobilitate_frontiera.json').then(res => {
         //    console.log(res.data);
             this.frontiera=res.data;
             
           });
-          https://covid19.geo-spatial.org/external/wazero/Cluj-Napoca.2.json
+          
           
 
       /*    axios.get('https://covid19.geo-spatial.org/api/dashboard/getDeadCasesByCounty').then(res => {
@@ -145,25 +149,28 @@ function run() {
         this.JSONToCSVConvertor2(obj, "DailyCases", true, "Cazuri_cazuri_tot")
       },
       ex9:function(){
-      //  this.JSONToCSVConvertor2(this.frontiera, "Frontiera", true, "Frontiera")
-       // console.log(this.frontiera)
+
        this.downloadex7(JSON.stringify(this.frontiera),'frontiera.txt','text/plain')
 
 
       },
+      ex11:function(){
+        axios.get('https://covid19.geo-spatial.org/external/charts_vasile/assets/json/sst_bs.json').then(res => {
+            
+            this.JSONToCSVConvertor2(res.data, "Temperatura-apei", true, "Temperatura-apei")
+ 
+           });
+      },
       ex10:function(){
         var obj=[]
+        var p=1
           for(let i=0;i<this.waze_bu.length;i++){
-
-          /*  if(this.waze_bu[i]["value"]==undefined||this.waze_tim[i]["value"]==undefined||this.waze_costanta[i]["value"]==undefined||
-            this.waze_iasi[i]["value"]==undefined||this.waze_cluj[i]["value"]==undefined||this.waze_brasov[i]["value"]==undefined)
-            {}
-            else*/
-            obj.push({"bucuresti":this.waze_bu[i]["value"],"timisoara":this.waze_tim[i]["value"],"costanta":this.waze_costanta[i]["value"],
-            "iasi":this.waze_iasi[i]["value"],"cluj_napoca":this.waze_cluj[i]["value"],"brasov":this.waze_brasov[i]["value"]})
+            obj.push({"data":new Date(this.waze_bu[i]["time"]).toString().substring(3,15),"ziua":p,"bucuresti":Math.round(this.waze_bu[i]["value"]),"timisoara":Math.round(this.waze_tim[i]["value"]),"costanta":Math.round(this.waze_costanta[i]["value"]),
+            "iasi":Math.round(this.waze_iasi[i]["value"]),"cluj_napoca":Math.round(this.waze_cluj[i]["value"]),"brasov":Math.round(this.waze_brasov[i]["value"])})
+            p++
           }
-        console.log(obj)
-     //     this.JSONToCSVConvertor2(obj, "waze", true, "waze")
+          
+          this.JSONToCSVConvertor2(obj, "waze", true, "waze")
       }
       
 
@@ -230,14 +237,24 @@ function run() {
         console.log(this.aerlive)
         var obj = [[], [], [], [], [], [],[]]
         var sec = []
+        var dates=[]
 
 
 
-        this.aerlive[0].so2_data.forEach(function (o, index) {
-          obj[0][index] = (o.x)
+        this.aerlive[0].ica_data.forEach(function (o, index) {
+          obj[0][index] =(o.x.substring(6, 10)+"-"+o.x.substring(3, 5)+"-"+o.x.substring(0, 2))
 
         }
         );
+
+/*
+        obj[0].forEach(function (o, index) {
+          dates[index] =  o.replace( "-", ' ' );
+
+        }
+        );*/
+
+     //   obj[0]=dates
 
         this.aerlive[0].co_data.forEach(function (o, index) {
           obj[1][index] = ( Math.round(o.y ))
@@ -274,7 +291,7 @@ function run() {
         );
 
         
-
+       console.log(obj)
         for (let i = 0; i < obj[0].length; i++) {
 
           sec[i] = ({data: obj[0][i], "Co": JSON.stringify(obj[1][i]), "ica": JSON.stringify(obj[2][i]), "No2": JSON.stringify(obj[3][i])
@@ -282,6 +299,16 @@ function run() {
           })
         }
 
+        sec.sort(function(a, b) {
+          var c = new Date(a.data);
+          var d = new Date(b.data);
+     //     console.log(c)
+   //       console.log(d)
+          return c-d;
+          
+      });
+
+     //   console.log(sec)
            this.JSONToCSVConvertor2(sec, "Calitate_aer", true,"Calitate_aer")
             
       },
