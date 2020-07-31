@@ -145,7 +145,9 @@ function run() {
         this.JSONToCSVConvertor2(obj, "DailyCases", true, "Cazuri_cazuri_tot")
       },
       ex9:function(){
-        this.JSONToCSVConvertor2(this.frontiera, "Frontiera", true, "Frontiera")
+      //  this.JSONToCSVConvertor2(this.frontiera, "Frontiera", true, "Frontiera")
+       // console.log(this.frontiera)
+       this.downloadex7(JSON.stringify(this.frontiera),'frontiera.txt','text/plain')
 
 
       },
@@ -160,8 +162,8 @@ function run() {
             obj.push({"bucuresti":this.waze_bu[i]["value"],"timisoara":this.waze_tim[i]["value"],"costanta":this.waze_costanta[i]["value"],
             "iasi":this.waze_iasi[i]["value"],"cluj_napoca":this.waze_cluj[i]["value"],"brasov":this.waze_brasov[i]["value"]})
           }
-     //    console.log(obj)
-          this.JSONToCSVConvertor2(obj, "waze", true, "waze")
+        console.log(obj)
+     //     this.JSONToCSVConvertor2(obj, "waze", true, "waze")
       }
       
 
