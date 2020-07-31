@@ -1,7 +1,9 @@
 ## Practica_covid19_UTCN
 
 # pentru simpla rulare
--  start.bat
++  start.bat
+------------
++  https://covid-19-sm.000webhostapp.com/
 
 # pentru dezvoltare : 
  
