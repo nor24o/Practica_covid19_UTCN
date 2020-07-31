@@ -2,12 +2,10 @@
   "name": "client",
   "version": "0.0.1",
   "scripts": {
-    "start": "live-server --port=4300",
-    "dev": "live-server --host=192.168.100.7 --port=8080"
+    "start": "live-server --port=4300"
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "fs": "0.0.1-security",
     "live-server": "^1.2.1"
   },
   "devDependencies": {
