@@ -14,9 +14,9 @@
 
 + Horvat
 
-+ Austria
-+ Ungaria
-+ Israel 
++ - Austria
++ - Ungaria
++ - Israel 
 
 + Kato
 
