@@ -1,5 +1,6 @@
  %[filename, filepath] = uigetfile( 'C:\Users\horva\Desktop\Practica\Practica_covid19_UTCN\Database\Norbert\Cazuri.xlsx' ) ;
-Cazuri = xlsread( 'C:\Users\horva\Desktop\Practica\Practica_covid19_UTCN\Database\Norbert\Cazuri.xlsx' ) ;
+% date de pe https://covid19.geo-spatial.org/
+ Cazuri = xlsread( 'C:\Users\horva\Desktop\Practica\Practica_covid19_UTCN\Database\Norbert\Cazuri.xlsx' ) ;
 
 t=Cazuri(:,1);
 cazuri_totale=Cazuri(:,2);
@@ -10,7 +11,21 @@ vindecati=Cazuri(:,5);
 nr_teste=Cazuri(:,6);
 cazuri_unice=Cazuri(:,7);
 
+rata_de_crestere=Cazuri(:,8);
 
+frecventa_pe_grupe_varste=Cazuri(:,9);
+frecventa_pe_grupe_frecventa=Cazuri(:,10);
+
+nr_de_reproductie_virus_R=Cazuri(:,11);
+nr_de_reproductie_virus_R25=Cazuri(:,12);
+nr_de_reproductie_virus_R75=Cazuri(:,13);
+nr_de_reproductie_virus_R05=Cazuri(:,14);
+nr_de_reproductie_virus_R95=Cazuri(:,15);
+nr_de_reproductie_virus_R025=Cazuri(:,16);
+nr_de_reproductie_virus_R975=Cazuri(:,17);
+
+
+% date de pe worldomeres 
 
 AU_HU_IS = xlsread( 'C:\Users\horva\Desktop\Practica\Practica_covid19_UTCN\Database\Norbert\Australia_Ungaria_Israel_worldometer.xlsx' ) ;
  
