@@ -27,3 +27,5 @@
 - 2 npm run start
 
 # https://covid19.geo-spatial.org/
+
+# https://www.cnscbt.ro/index.php/analiza-cazuri-confirmate-covid19
