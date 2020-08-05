@@ -29,3 +29,5 @@
 # https://covid19.geo-spatial.org/
 
 # https://www.cnscbt.ro/index.php/analiza-cazuri-confirmate-covid19
+
+# https://www.cnscbt.ro/index.php/analiza-cazuri-confirmate-covid19?limit=20&limitstart=0
