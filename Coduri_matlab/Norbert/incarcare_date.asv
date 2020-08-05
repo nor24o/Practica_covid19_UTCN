@@ -28,15 +28,10 @@ nr_de_reproductie_virus_R95=Cazuri(:,15);
 nr_de_reproductie_virus_R025=Cazuri(:,16);
 nr_de_reproductie_virus_R975=Cazuri(:,17);
 
-x=Cazuri(:,18);
-geo_spatial_cazuri_sapt = x(~isnan(x));
-
-
 % date de pe cnscbt
 
 cnstbt = xlsread( strcat(path,'Norbert\cnscbt.xlsx' )) ;
 cns_cazuri_sapt=cnstbt(:,1);
-
 % date de pe worldomeres 
 
 AU_HU_IS = xlsread( strcat(path,'Norbert\Australia_Ungaria_Israel_worldometer.xlsx' )) ;
@@ -75,5 +70,5 @@ decese_pe_zi_Romania=AU_HU_IS(:,21);
 x=AU_HU_IS(:,23);
 cazuri_noi_pe_sapt_Romania_saptamani = x(~isnan(x));
 
-x=AU_HU_IS(:,24);   
-cazuri_noi_pe_sapt_Romania = x(~isnan(x));
+cazuri_noi_pe_sapt_Romania_s=AU_HU_IS(:,24);   
+cazuri_totale_Romania_s = cazuri_totale_Romania_s(~isnan(cazuri_totale_Romania_s));
