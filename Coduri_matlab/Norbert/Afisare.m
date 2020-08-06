@@ -170,17 +170,17 @@ title('diferenta dintre cazuri totale geo-spatial si worldomeres  Romania')
 xticks(0 :5: 172)
 
 
-%%
-figure
+%% diferenta dintre cazuri totlae  https://covid19.geo-spatial.org/ ,cns si worldomeres  Romania
+figure('Name','diferenta dintre cazuri totlae  https://covid19.geo-spatial.org/ ,cns si worldomeres  Romania')
 B_tots = padarray(cns_cazuri_sapt,2,NaN,'pos');
 
 hold on 
 
-plot(cazuri_noi_pe_sapt_Romania_saptamani,geo_spatial_cazuri_sapt,'r')
+plot(cazuri_noi_pe_sapt_Romania_saptamani_wo,geo_spatial_cazuri_sapt,'r')
 
-plot(cazuri_noi_pe_sapt_Romania_saptamani,B_tots,'black')
+plot(cazuri_noi_pe_sapt_Romania_saptamani_wo,B_tots,'black')
 
-plot(cazuri_noi_pe_sapt_Romania_saptamani,cazuri_noi_pe_sapt_Romania,'b')
+plot(cazuri_noi_pe_sapt_Romania_saptamani_wo,cazuri_noi_pe_sapt_Romania_wo,'b')
 
 legend('cazuri totale Romania covid19.geo-spatial','cazuri totale Romania cns','geo spatial cazuri sap Romania')
 title('Cazuri totale pe saptamana Romania ')

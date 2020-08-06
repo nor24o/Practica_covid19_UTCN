@@ -73,7 +73,8 @@ decese_pe_zi_Romania=AU_HU_IS(:,21);
 
 %scoatem termeni NaN
 x=AU_HU_IS(:,23);
-cazuri_noi_pe_sapt_Romania_saptamani = x(~isnan(x));
+cazuri_noi_pe_sapt_Romania_saptamani_wo = x(~isnan(x));
 
 x=AU_HU_IS(:,24);   
-cazuri_noi_pe_sapt_Romania = x(~isnan(x));
+cazuri_noi_pe_sapt_Romania_wo = x(~isnan(x));
+cazuri_noi_pe_sapt_Romania_wo = circshift(cazuri_noi_pe_sapt_Romania_wo,-1)
