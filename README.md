@@ -30,4 +30,4 @@
 
 # https://www.cnscbt.ro/index.php/analiza-cazuri-confirmate-covid19
 
-# https://www.cnscbt.ro/index.php/analiza-cazuri-confirmate-covid19?limit=20&limitstart=0
+# https://www.worldometers.info/coronavirus/
