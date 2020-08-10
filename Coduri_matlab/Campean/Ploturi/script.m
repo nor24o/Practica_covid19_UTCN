@@ -72,15 +72,8 @@ is=Waze(:,7);
 plot(t2,[tim,cj,bv,ct,is]);
 legend('Bucuresti','Timisoara','Cluj-Napoca','Brasov','Constanta','Iasi')
 %% Plot  cu date pentru worldometer    
-%Romania
-figure('Name','Cazuri')
-t3=Cazuri(:,1);
-cazuri_totale=Cazuri(:,2);
-cazuri_active=Cazuri(:,3);
-decese=Cazuri(:,4);
-vindecati=Cazuri(:,5);
-nr_teste=Cazuri(:,6);
-cazuri_unice=Cazuri(:,7);
+
+
 data_zile=AU_HU_IS(:,1);
 %Israel
 cazuri_totale_Israel=AU_HU_IS(:,2);
