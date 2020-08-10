@@ -2,7 +2,7 @@
 
 % date de pe https://covid19.geo-spatial.org/
 
-%director principal fisiere
+% Director principal fisiere
 path='C:\Users\horva\Desktop\Practica\Practica_covid19_UTCN\Database\';
 
 Cazuri = xlsread( strcat(path,'Norbert\Cazuri.xlsx' )) ;

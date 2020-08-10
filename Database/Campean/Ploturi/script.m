@@ -1,5 +1,5 @@
 %director root 
-path='C:\Users\horva\Desktop\database\';
+path='C:\Users\horva\Desktop\Practica\Practica_covid19_UTCN\Database\Campean\Ploturi';
 
 
 Cazuri = xlsread( strcat(path,'Cazuri.xlsx' )) ;
@@ -68,7 +68,7 @@ is=Waze(:,7);
 
 plot(t2,[tim,cj,bv,ct,is]);
 legend('Bucuresti','Timisoara','Cluj-Napoca','Brasov','Constanta','Iasi')
-
+%%
 
 figure('Name','Cazuri')
 t3=Cazuri(:,1);
@@ -116,6 +116,8 @@ figure('Name','Nr teste, cazuri unice')
 
 semilogy(t3,[nr_teste,cazuri_unice])
 
+%%
+
 % date de pe worldomeres 
 %Israel
 figure('Name','Cazuri pe Israel')
@@ -129,7 +131,7 @@ plot(data_zile,decese_pe_zi_Israel,'b')
 hold off
 
 
-
+%%
 figure('Name','Europa')
 
 t4=Europa(:,1);
@@ -180,6 +182,7 @@ Letonia=Europa(:,45);
 plot(t4,[Rusia,UK,Spania,	Italia,	Turcia,	Germaniaa,	Frantaa,	Suedia,	Belarus	,Ucraina,	Belgia,	Olanda	,Portugalia,Romania,	Polonia,	Elvetia,	Irlanda	,Serbia	,Moldova	,Austria	,Cehia	,Danemarca	,Bulgaria	,Bosnia ,	Norvegia,	Finlanda	,Luxemburg,	Croatia,	Albania,	Ungaria	,Grecia	,Muntenegru	,Slovacia,	Slovenia,	Estonia,	Lituania,	Islanda	,Letonia,	Cipru,	Andora,	Malta,	SanMarino,	Monaco,	Liechtenstein]);
 legend('Rusia','UK','Spania','Italia','Turcia','Germaniaa','Frantaa','Suedia','Belarus','Ucraina','Belgia','Olanda','Portugalia','Romania','Polonia','Elvetia','Irlanda','Serbia','Moldova','Austria','Cehia','Danemarca','Bulgaria	','Bosnia','Norvegia','Finlanda','Luxemburg','Croatia','Albania','Ungaria	','Grecia	','Muntenegru	','Slovacia','Slovenia','Estonia','Lituania','Islanda','Letonia','Cipru','Andora','Malta','SanMarino','Monaco','Liechtenstein')
 
+%%
 t5=calitate_aer(:,1);
 Co=calitate_aer(:,2);
 ica=calitate_aer(:,3);
@@ -212,7 +215,7 @@ plot(t5,So2,'b')
 legend('So2')
 hold off
 
-
+%%
 figure('Name','Decese')
 t6=Decese(:,1);
 bb=Decese(:,2);
@@ -235,8 +238,7 @@ totla_cases=elvetia2(:,2);
 totla_daily=elvetia2(:,3);
 deaths=elvetia2(:,3);
 
-
-
+%%
 figure('Name','Elvetia')
 hold off
 hold on
@@ -261,7 +263,7 @@ totla_daily2=Franta(:,3);
 deaths2=Franta(:,3);
 
 
-
+%%
 figure('Name','Franta')
 hold off
 hold on
@@ -284,7 +286,7 @@ totla_daily3=Germania(:,3);
 deaths3=Germania(:,3);
 
 
-
+%%
 figure('Name','Germania')
 hold off
 hold on
@@ -307,7 +309,7 @@ totla_cases3=spania(:,2);
 totla_daily3=spania(:,3);
 deaths3=spania(:,3);
 
-
+%%
 
 figure('Name','Spania')
 hold off
@@ -330,7 +332,7 @@ totla_daily3=italia(:,3);
 deaths3=italia(:,3);
 
 
-
+%%
 figure('Name','Italia')
 hold off
 hold on
@@ -351,7 +353,7 @@ totla_cases3=uk(:,2);
 totla_daily3=uk(:,3);
 deaths3=uk(:,3);
 
-
+%%
 
 figure('Name','UK')
 hold off
@@ -376,7 +378,7 @@ totla_cases3=usa(:,2);
 totla_daily3=usa(:,3);
 deaths3=usa(:,3);
 
-
+%%
 
 figure('Name','USA')
 hold off
@@ -399,7 +401,7 @@ totla_daily3=portugalia(:,3);
 deaths3=portugalia(:,3);
 
 
-
+%%
 figure('Name','Portugalia')
 hold off
 hold on
