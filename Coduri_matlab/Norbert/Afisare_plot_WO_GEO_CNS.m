@@ -180,7 +180,7 @@ hold on
 x=length(cazuri_noi_pe_sapt_Romania_saptamani_wo)-2;
 timp=0:1:x;
 
-semilogy(timp,geo_spatial_cazuri_sapt_ro_geo,'r-')
+semilogy(timp,geo_spatial_cazuri_sapt_ro_geo,'r+')
 
 semilogy(timp,cns_cazuri_sapt,'black-')
 
