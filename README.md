@@ -1,9 +1,10 @@
 ## Practica_covid19_UTCN
 
-# Elman network function matlab 
+# Adaline network functions matlab 
 
                 array,array,value,value
    elman_neuron(time,data,epochs,plot predict)
+   narxnet_neuron(timp,data,epoch)
 
 
 + Cornestean
