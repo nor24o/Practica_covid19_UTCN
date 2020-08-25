@@ -1,11 +1,12 @@
 ## Practica_covid19_UTCN
 
-# Elman network function matlab 
+# Adaline network functions matlab 
 
                 array,array,value,value
-   elman_neuron(time,data,epochs,plot predict)
+   elman_neuron(time,data,epochs,plot predict)<br>
+   narxnet_neuron(timp,data,epoch)
 
-
+# //
 + Cornestean
   - Spania
   - Italia
@@ -22,7 +23,7 @@
   - SUA
   - Portugalia
 
-# pentru simpla rulare
+# pentru simpla rulare 
 +  start.bat
 ------------
 +  https://covid-19-sm.000webhostapp.com/
