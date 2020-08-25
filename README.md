@@ -1,5 +1,11 @@
 ## Practica_covid19_UTCN
 
+# Elman network function matlab 
+
+                array,array,value,value
+   elman_neuron(time,data,epochs,plot predict)
+
+
 + Cornestean
   - Spania
   - Italia
