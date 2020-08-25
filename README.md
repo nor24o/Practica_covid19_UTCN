@@ -3,7 +3,7 @@
 # Adaline network functions matlab 
 
                 array,array,value,value
-   elman_neuron(time,data,epochs,plot predict)
+   elman_neuron(time,data,epochs,plot predict)<br>
    narxnet_neuron(timp,data,epoch)
 
 
