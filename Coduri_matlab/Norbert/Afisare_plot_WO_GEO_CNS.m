@@ -2,31 +2,31 @@
 figure('Name','Cazuri liniar,logarithmic Romania')
 %logatithmic
 subplot(2,1,1)
-semilogy(t_ro_geo,[cazuri_totale_ro_geo,cazuri_active_ro_geo,decese_ro_geo,vindecati_ro_geo])
+semilogy(geo_timp_ro,[geo_cazuri_totale_ro,geo_cazuri_active_ro,geo_decese_ro,geo_vindecati_ro])
 title('logatithmic')
 legend('cazuri totale','cazuri active','decese','vindecati')
 
 %liniar
 subplot(2,1,2)
-plot(t_ro_geo,[cazuri_totale_ro_geo,cazuri_active_ro_geo,decese_ro_geo,vindecati_ro_geo])
+plot(geo_timp_ro,[geo_cazuri_totale_ro,geo_cazuri_active_ro,geo_decese_ro,geo_vindecati_ro])
 title('liniar')
 legend('cazuri totale','cazuri active','decese','vindecati')
 
 
 %nr teste,cazuri unice
 figure('Name','Nr teste ,cazuri unice')
-plot(t_ro_geo,[nr_teste_ro_geo,cazuri_unice_ro_geo])
+plot(geo_timp_ro,[geo_nr_teste_ro,geo_cazuri_unice_ro])
 legend('nr teste','cazuri unice')
 
 %Rata de crestere
 figure('Name','Rata de crestere')
-plot(t_ro_geo,rata_de_crestere_ro_geo)
+plot(geo_timp_ro,geo_rata_de_crestere_ro)
 title('Rata de crestere')
 
 
 %nr_de_reproductie_virus
 figure('Name','Nr de reproductie virus')
-plot(t_ro_geo,[nr_de_reproductie_virus_R,nr_de_reproductie_virus_R25,nr_de_reproductie_virus_R75,nr_de_reproductie_virus_R05,nr_de_reproductie_virus_R95,nr_de_reproductie_virus_R025,nr_de_reproductie_virus_R975])
+plot(geo_timp_ro,[nr_de_reproductie_virus_R,nr_de_reproductie_virus_R25,nr_de_reproductie_virus_R75,nr_de_reproductie_virus_R05,nr_de_reproductie_virus_R95,nr_de_reproductie_virus_R025,nr_de_reproductie_virus_R975])
 title('Nr de reproductie virus')
 
 
@@ -158,13 +158,13 @@ xticks(0 :5: 172)
 
 %% diferenta dintre cazuri totlae  https://covid19.geo-spatial.org/ si worldomeres  Romania
 %folosim pentru a egala matricele 
-B = padarray(t_ro_geo,10,0,'pre');
-%B_tot = padarray(cazuri_totale_ro_geo,10,0,'pre');
+B = padarray(geo_timp_ro,10,0,'pre');
+%B_tot = padarray(geo_cazuri_totale_ro,10,0,'pre');
 
 figure
 hold on 
 plot(data_zile,cazuri_totale_Romania_wo,'r')
-plot(data_zile,cazuri_totale_ro_geo,'black')
+plot(data_zile,geo_cazuri_totale_ro,'black')
 
 legend('cazuri totale Romania worldometer','cazuri totale Romania covid19.geo-spatial')
 title('diferenta dintre cazuri totale geo-spatial si worldomeres  Romania')
@@ -180,7 +180,7 @@ hold on
 x=length(cazuri_noi_pe_sapt_Romania_saptamani_wo)-2;
 timp=0:1:x;
 
-semilogy(timp,geo_spatial_cazuri_sapt_ro_geo,'r+')
+semilogy(timp,geo_spatial_cazuri_sapgeo_timp_ro,'r+')
 
 semilogy(timp,cns_cazuri_sapt,'black-')
 

@@ -4,19 +4,22 @@ path='C:\Users\horva\Desktop\Practica\Practica_covid19_UTCN\Database\';
 
 % incarcare date pentru https://covid19.geo-spatial.org/
 Cazuri = xlsread( strcat(path,'Norbert\Cazuri.xlsx' )) ;
-t_ro_geo=Cazuri(:,1);
-cazuri_totale_ro_geo=Cazuri(:,2);
-cazuri_active_ro_geo=Cazuri(:,3);
-decese_ro_geo=Cazuri(:,4);
-vindecati_ro_geo=Cazuri(:,5);
+
+geo_timp_ro=Cazuri(:,1);
+geo_cazuri_totale_ro=Cazuri(:,2);
+geo_cazuri_active_ro=Cazuri(:,3);
+geo_decese_ro=Cazuri(:,4);
+geo_vindecati_ro=Cazuri(:,5);
+
+%%
 % numarul de teste efectuate 
-nr_teste_ro_geo=Cazuri(:,6);
-cazuri_unice_ro_geo=Cazuri(:,7);
+geo_nr_teste_ro=Cazuri(:,6);
+geo_cazuri_unice_ro=Cazuri(:,7);
 
-rata_de_crestere_ro_geo=Cazuri(:,8);
+geo_rata_de_crestere_ro=Cazuri(:,8);
 
-frecventa_pe_grupe_varste_ro_geo=Cazuri(:,9);
-frecventa_pe_grupe_frecventa_ro_geo=Cazuri(:,10);
+geo_frecventa_pe_grupe_varste_ro=Cazuri(:,9);
+geo_frecventa_pe_grupe_frecventa_ro=Cazuri(:,10);
 
 nr_de_reproductie_virus_R=Cazuri(:,11);
 nr_de_reproductie_virus_R25=Cazuri(:,12);
@@ -27,7 +30,7 @@ nr_de_reproductie_virus_R025=Cazuri(:,16);
 nr_de_reproductie_virus_R975=Cazuri(:,17);
 % cazuri saptamanale
 x=Cazuri(:,18);
-geo_spatial_cazuri_sapt_ro_geo = x(~isnan(x));
+geo_spatial_cazuri_sapgeo_timp_ro = x(~isnan(x));
 
 
 % date de pe cnscbt
