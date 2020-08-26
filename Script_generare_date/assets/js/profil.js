@@ -216,7 +216,7 @@ function run() {
         this.json=json;
       });
 
-      fetch("/cazAR.json")
+      fetch("/data.txt")
       .then(r => r.json())
       .then(json => {
       
