@@ -13,6 +13,14 @@ body {
   padding: 10px;
   width: auto;
 }
+.jud{
+  padding-left: 20px;
+  
+  display: flex;
+  background-color: rgb(185, 11, 34);
+  padding: 10px;
+  width: auto;
+}
 
 .waze {
   padding-left: 20px;

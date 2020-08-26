@@ -3,9 +3,11 @@
 
 <head>
     <link rel="stylesheet" href="/style.css">
+    
     <script type="text/javascript" src="/assets/libs/vue.js"></script>
     <script type="text/javascript" src="/assets/libs/axios.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/regression/2.0.1/regression.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.10.3/xlsx.full.min.js"></script>
     
 
 </head>
@@ -15,13 +17,21 @@
        
        <div class="cazuri">
     <button v-on:click="ex1()">Cazuri_cazuri_tot</button>&nbsp;<button v-on:click="ex2()">Cazuri_Ziua_fata_de_cazuri_cumulative</button>&nbsp;<button v-on:click="ex4()">Cazuri_Ziua_fata_de_cazuri/numar de cazuri totale (rata de crestere)</button>&nbsp;
-    <button v-on:click="cazuri_pe_judet()">numar de cazuri pe Judete</button>&nbsp;
+    <button v-on:click="cazuri_pe_judet()">numar de cazuri pe Judete</button>&nbsp;<br>
+     
        </div>
 
     <div class="cazuri">
         <button v-on:click="ex6()">Frecvența pe grupe de vârstă</button>&nbsp; <button v-on:click="ex7()">Numarul de reproductie R</button>&nbsp;
-    </div>
+        <!--input type="file" class="custom-file-input" id="idEditUploadVideo"v-on:change="videoChoosen"-->
 
+       
+    </div>
+    <br>
+    <div class="jud">
+    <button v-on:click="caz_but()">Numar de cazuri pe Judet Simplificat </button>&nbsp;
+    <button v-on:click="decese_but()">Numar de decese pe Judet Simplificat </button>&nbsp;
+    </div>
 
 
 
