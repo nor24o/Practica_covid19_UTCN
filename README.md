@@ -6,27 +6,15 @@
    elman_neuron(time,data,epochs,plot predict)<br>
    narxnet_neuron(timp,data,epoch)
 
-# //
-+ Cornestean
-  - Spania
-  - Italia
-  - Marea Britanie 
-- Csak
-  - Franta
-  - Elvetia
-  - Germania 
-- Horvat
-  - Austria
-  - Ungaria
-  - Israel 
-+ Kato
-  - SUA
-  - Portugalia
+# functia noua din Script generare date va permite sa extrageti date din jurnale publicate de covid19-geo-spatial
+#   cititi fisierele txt prezente in folderele  "Script_generare_date\caz" si "Script_generare_date\decese" 
 
-# pentru simpla rulare 
-+  start.bat
+# pentru simpla rulare script
+#  start.bat
 ------------
 +  https://covid-19-sm.000webhostapp.com/
+	
+   http://beautifytools.com/excel-to-json-converter.php
 
 # pentru dezvoltare : 
  
