@@ -2,35 +2,32 @@
 figure('Name','Cazuri liniar,logarithmic Romania')
 %logatithmic
 subplot(2,1,1)
-semilogy(geo_timp_ro,[geo_cazuri_totale_ro,geo_cazuri_active_ro,geo_decese_ro,geo_vindecati_ro])
+semilogy(geo_ro_timp,[geo_ro_cazuri_totale,geo_ro_cazuri_active,geo_ro_decese,geo_ro_vindecati])
 title('logatithmic')
 legend('cazuri totale','cazuri active','decese','vindecati')
 
 %liniar
 subplot(2,1,2)
-plot(geo_timp_ro,[geo_cazuri_totale_ro,geo_cazuri_active_ro,geo_decese_ro,geo_vindecati_ro])
+plot(geo_ro_timp,[geo_ro_cazuri_totale,geo_ro_cazuri_active,geo_ro_decese,geo_ro_vindecati])
 title('liniar')
 legend('cazuri totale','cazuri active','decese','vindecati')
 
 
 %nr teste,cazuri unice
 figure('Name','Nr teste ,cazuri unice')
-plot(geo_timp_ro,[geo_nr_teste_ro,geo_cazuri_unice_ro])
+plot(geo_ro_timp,[geo_ro_nr_teste,geo_ro_cazuri_unice])
 legend('nr teste','cazuri unice')
 
 %Rata de crestere
 figure('Name','Rata de crestere')
-plot(geo_timp_ro,geo_rata_de_crestere_ro)
+plot(geo_ro_timp,geo_ro_rata_de_crestere)
 title('Rata de crestere')
 
 
 %nr_de_reproductie_virus
 figure('Name','Nr de reproductie virus')
-plot(geo_timp_ro,[nr_de_reproductie_virus_R,nr_de_reproductie_virus_R25,nr_de_reproductie_virus_R75,nr_de_reproductie_virus_R05,nr_de_reproductie_virus_R95,nr_de_reproductie_virus_R025,nr_de_reproductie_virus_R975])
+plot(geo_ro_timp,[nr_de_reproductie_virus_R,nr_de_reproductie_virus_R25,nr_de_reproductie_virus_R75,nr_de_reproductie_virus_R05,nr_de_reproductie_virus_R95,nr_de_reproductie_virus_R025,nr_de_reproductie_virus_R975])
 title('Nr de reproductie virus')
-
-
-
 
 %% Ploturi date de pe worldomeres 
 %Israel
@@ -38,23 +35,23 @@ figure('Name','Cazuri pentru Israel worldomeres')
 hold off
 hold on
 subplot(5,1,1)
-plot(data_zile,cazuri_totale_Israel_wo,'r')
+plot(wo_timp,wo_Israel_cazuri_totale,'r')
 xticks(0 :5: 172)
 legend('cazuri totale')
 subplot(5,1,2)
-plot(data_zile,cazuri_noi_pe_zi_Israel_wo,'r')
+plot(wo_timp,wo_Israel_cazuri_noi_pe_zi,'r')
 xticks(0 :5: 172)
 legend('cazuri noi pe zi')
 subplot(5,1,3)
-plot(data_zile,cazuri_active_Israel_wo,'m')
+plot(wo_timp,wo_Israel_cazuri_active,'m')
 xticks(0 :5: 172)
 legend('cazuri active')
 subplot(5,1,4)
-plot(data_zile,decese_Israel_wo,'b')
+plot(wo_timp,wo_Israel_decese,'b')
 xticks(0 :5: 172)
 legend('decese')
 subplot(5,1,5)
-plot(data_zile,decese_pe_zi_Israel_wo,'b')
+plot(wo_timp,wo_Israel_decese_pe_zi,'b')
 xticks(0 :5: 172)
 legend('decese pe zi')
 hold off
@@ -64,23 +61,23 @@ figure('Name','Cazuri pentru Austria worldomeres')
 hold off
 hold on
 subplot(5,1,1)
-plot(data_zile,cazuri_totale_Austria_wo,'r')
+plot(wo_timp,wo_Austria_cazuri_totale,'r')
 xticks(0 :5: 172)
 legend('cazuri totale')
 subplot(5,1,2)
-plot(data_zile,cazuri_noi_pe_zi_Austria_wo,'r')
+plot(wo_timp,wo_Austria_cazuri_noi_pe_zi,'r')
 xticks(0 :5: 172)
 legend('cazuri noi pe zi')
 subplot(5,1,3)
-plot(data_zile,cazuri_active_Austria_wo,'m')
+plot(wo_timp,wo_Austria_cazuri_active,'m')
 xticks(0 :5: 172)
 legend('cazuri active')
 subplot(5,1,4)
-plot(data_zile,decese_Austria_wo,'b')
+plot(wo_timp,wo_Austria_decese,'b')
 xticks(0 :5: 172)
 legend('decese')
 subplot(5,1,5)
-plot(data_zile,decese_pe_zi_Austria_wo,'b')
+plot(wo_timp,wo_Austria_decese_pe_zi,'b')
 xticks(0 :5: 172)
 legend('decese pe zi')
 hold off
@@ -90,23 +87,23 @@ figure('Name','Cazuri pentru Ungaria worldomeres')
 hold off
 hold on
 subplot(5,1,1)
-plot(data_zile,cazuri_totale_Ungaria_wo,'r')
+plot(wo_timp,wo_Ungaria_cazuri_totale,'r')
 xticks(0 :5: 172)
 legend('cazuri totale')
 subplot(5,1,2)
-plot(data_zile,cazuri_noi_pe_zi_Ungaria_wo,'r')
+plot(wo_timp,wo_Ungaria_cazuri_noi_pe_zi,'r')
 xticks(0 :5: 172)
 legend('cazuri noi pe zi')
 subplot(5,1,3)
-plot(data_zile,cazuri_active_Ungaria_wo,'m')
+plot(wo_timp,wo_Ungaria_cazuri_active,'m')
 xticks(0 :5: 172)
 legend('cazuri active')
 subplot(5,1,4)
-plot(data_zile,decese_Ungaria_wo,'b')
+plot(wo_timp,wo_Ungaria_decese,'b')
 xticks(0 :5: 172)
 legend('decese')
 subplot(5,1,5)
-plot(data_zile,decese_pe_zi_Ungaria_wo,'b')
+plot(wo_timp,wo_Ungaria_decese_pe_zi,'b')
 xticks(0 :5: 172)
 legend('decese pe zi')
 hold off
@@ -116,41 +113,36 @@ figure('Name','Cazuri pentru Romania worldomeres')
 hold off
 hold on
 subplot(5,1,1)
-plot(data_zile,cazuri_totale_Romania_wo,'r')
+plot(wo_timp,wo_Romania_cazuri_totale,'r')
 xticks(0 :5: 172)
 legend('cazuri totale')
 subplot(5,1,2)
-plot(data_zile,cazuri_noi_pe_zi_Romania_wo,'r')
+plot(wo_timp,wo_Romania_cazuri_noi_pe_zi,'r')
 xticks(0 :5: 172)
 legend('cazuri noi pe zi')
 subplot(5,1,3)
-plot(data_zile,cazuri_active_Romania_wo,'m')
+plot(wo_timp,wo_Romania_cazuri_active,'m')
 xticks(0 :5: 172)
 legend('cazuri active')
 subplot(5,1,4)
-plot(data_zile,decese_Romania_wo,'b')
+plot(wo_timp,wo_Romania_decese,'b')
 xticks(0 :5: 172)
 legend('decese')
 subplot(5,1,5)
-plot(data_zile,decese_pe_zi_Romania_wo,'b')
+plot(wo_timp,wo_Romania_decese_pe_zi,'b')
 xticks(0 :5: 172)
 legend('decese pe zi')
 hold off
-
-
-
-
-
 
 %% Afisare Cazuri totale Israel Austria Ungaria Romania suprapuse worldomeres
 figure;
 hold off 
 hold on
 
-plot(data_zile,cazuri_totale_Israel_wo,'m')
-plot(data_zile,cazuri_totale_Austria_wo,'b')
-plot(data_zile,cazuri_totale_Ungaria_wo,'black')
-plot(data_zile,cazuri_totale_Romania_wo,'r')
+plot(wo_timp,wo_Israel_cazuri_totale,'m')
+plot(wo_timp,wo_Austria_cazuri_totale,'b')
+plot(wo_timp,wo_Ungaria_cazuri_totale,'black')
+plot(wo_timp,wo_Romania_cazuri_totale,'r')
 legend('cazuri totale Israel','cazuri totale Austria','cazuri totale Ungaria','cazuri totale Romania')
 title('Cazuri totale Israel Austria Ungaria Romania')
 xticks(0 :5: 172)
@@ -158,13 +150,13 @@ xticks(0 :5: 172)
 
 %% diferenta dintre cazuri totlae  https://covid19.geo-spatial.org/ si worldomeres  Romania
 %folosim pentru a egala matricele 
-B = padarray(geo_timp_ro,10,0,'pre');
-%B_tot = padarray(geo_cazuri_totale_ro,10,0,'pre');
+B = padarray(geo_ro_timp,10,0,'pre');
+%B_tot = padarray(geo_ro_cazuri_totale,10,0,'pre');
 
 figure
 hold on 
-plot(data_zile,cazuri_totale_Romania_wo,'r')
-plot(data_zile,geo_cazuri_totale_ro,'black')
+plot(wo_timp,wo_Romania_cazuri_totale,'r')
+plot(wo_timp,geo_ro_cazuri_totale,'black')
 
 legend('cazuri totale Romania worldometer','cazuri totale Romania covid19.geo-spatial')
 title('diferenta dintre cazuri totale geo-spatial si worldomeres  Romania')
@@ -173,18 +165,18 @@ hold off
 
 %% diferenta dintre cazuri totlae  https://covid19.geo-spatial.org/ , cns si worldomeres  Romania suprapuse 
 
-B_tots = padarray(cns_cazuri_sapt,2,NaN,'pos');
+B_tots = padarray(cns_cazuri_cazuri_pe_sapt,2,NaN,'pos');
 
 figure('Name','diferenta dintre cazuri totlae  https://covid19.geo-spatial.org/ ,cns si worldomeres  Romania')
 hold on 
-x=length(cazuri_noi_pe_sapt_Romania_saptamani_wo)-2;
+x=length(wo_Romania_cazuri_noi_pe_sapt_zile)-2;
 timp=0:1:x;
 
-semilogy(timp,geo_spatial_cazuri_sapgeo_timp_ro,'r+')
+semilogy(timp,geo_ro_spatial_cazuri_pe_sapt,'r+')
 
-semilogy(timp,cns_cazuri_sapt,'black-')
+semilogy(timp,cns_cazuri_cazuri_pe_sapt,'black-')
 
-semilogy(timp,cazuri_noi_pe_sapt_Romania_wo,'b-')
+semilogy(timp,wo_Romania_cazuri_noi_pe_sapt,'b-')
 
 legend('cazuri totale saptamanale covid19.geo-spatial','cazuri totale saptamanale cns','cazuri totale saptamanale worldomeres')
 title('Cazurile totale suprapuse pentru Romania ,sursa date covid19.geo-spatial,cns,worldomeres ')

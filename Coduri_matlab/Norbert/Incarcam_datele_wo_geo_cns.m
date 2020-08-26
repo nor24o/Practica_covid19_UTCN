@@ -1,25 +1,35 @@
 
 % Director principal fisiere
-path='C:\Users\horva\Desktop\Practica\Practica_covid19_UTCN\Database\';
+
+           path='C:\Users\horva\Desktop\Practica\Practica_covid19_UTCN\Databaser\';
 
 % incarcare date pentru https://covid19.geo-spatial.org/
-Cazuri = xlsread( strcat(path,'Norbert\Cazuri.xlsx' )) ;
 
-geo_timp_ro=Cazuri(:,1);
-geo_cazuri_totale_ro=Cazuri(:,2);
-geo_cazuri_active_ro=Cazuri(:,3);
-geo_decese_ro=Cazuri(:,4);
-geo_vindecati_ro=Cazuri(:,5);
+            try
+                Cazuri = xlsread( strcat(path,'Norbert\Cazuri.xlsx' )) ;
+            catch
+                [filename, filepath] = uigetfile( 'Cazuri.xlsx' ) ;
+                full_filename = fullfile(filepath, filename);
+                Cazuri = xlsread( strcat(full_filename)) ;
+                Folder = filepath(1:end-8)
+                path=Folder;             
+            end
+
+geo_ro_timp=Cazuri(:,1);
+geo_ro_cazuri_totale=Cazuri(:,2);
+geo_ro_cazuri_active=Cazuri(:,3);
+geo_ro_decese=Cazuri(:,4);
+geo_ro_vindecati=Cazuri(:,5);
 
 %%
 % numarul de teste efectuate 
-geo_nr_teste_ro=Cazuri(:,6);
-geo_cazuri_unice_ro=Cazuri(:,7);
+geo_ro_nr_teste=Cazuri(:,6);
+geo_ro_cazuri_unice=Cazuri(:,7);
 
-geo_rata_de_crestere_ro=Cazuri(:,8);
+geo_ro_rata_de_crestere=Cazuri(:,8);
 
-geo_frecventa_pe_grupe_varste_ro=Cazuri(:,9);
-geo_frecventa_pe_grupe_frecventa_ro=Cazuri(:,10);
+geo_ro_frecventa_pe_grupe_varste=Cazuri(:,9);
+geo_ro_frecventa_pe_grupe_frecventa=Cazuri(:,10);
 
 nr_de_reproductie_virus_R=Cazuri(:,11);
 nr_de_reproductie_virus_R25=Cazuri(:,12);
@@ -30,55 +40,71 @@ nr_de_reproductie_virus_R025=Cazuri(:,16);
 nr_de_reproductie_virus_R975=Cazuri(:,17);
 % cazuri saptamanale
 x=Cazuri(:,18);
-geo_spatial_cazuri_sapgeo_timp_ro = x(~isnan(x));
+geo_ro_spatial_cazuri_pe_sapt = x(~isnan(x));
 
 
 % date de pe cnscbt
+            try
+                cnstbt = xlsread( strcat(path,'Norbert\cnscbt.xlsx' )) ;
+            catch
+                [filename, filepath] = uigetfile( 'cnscbt.xlsx' ) ;
+                full_filename = fullfile(filepath, filename);
+                cnstbt = xlsread( full_filename) ;
+                Folder = filepath(1:end-8)
+                path=Folder;            
+            end
 
-cnstbt = xlsread( strcat(path,'Norbert\cnscbt.xlsx' )) ;
-cns_cazuri_sapt=cnstbt(:,1);
+cns_cazuri_cazuri_pe_sapt=cnstbt(:,1);
 %%
-
+    
 % date de pe worldomeres 
+            try
+                AU_HU_IS = xlsread( strcat(path,'Norbert\Australia_Ungaria_Israel_worldometer.xlsx' )) ;
+            catch
+                [filename, filepath] = uigetfile( 'Australia_Ungaria_Israel_worldometer.xlsx' ) ;
+                full_filename = fullfile(filepath, filename);
+                AU_HU_IS = xlsread( full_filename) ;
+                Folder = filepath(1:end-8)
+                path=Folder;
+            end
 
-AU_HU_IS = xlsread( strcat(path,'Norbert\Australia_Ungaria_Israel_worldometer.xlsx' )) ;
  
-data_zile=AU_HU_IS(:,1);
+wo_timp=AU_HU_IS(:,1);
 
 % Israel
-cazuri_totale_Israel_wo=AU_HU_IS(:,2);
-cazuri_noi_pe_zi_Israel_wo=AU_HU_IS(:,3);
-cazuri_active_Israel_wo=AU_HU_IS(:,4);
-decese_Israel_wo=AU_HU_IS(:,5);
-decese_pe_zi_Israel_wo=AU_HU_IS(:,6);
+wo_Israel_cazuri_totale=AU_HU_IS(:,2);
+wo_Israel_cazuri_noi_pe_zi=AU_HU_IS(:,3);
+wo_Israel_cazuri_active=AU_HU_IS(:,4);
+wo_Israel_decese=AU_HU_IS(:,5);
+wo_Israel_decese_pe_zi=AU_HU_IS(:,6);
 
 % Ungaria
-cazuri_totale_Ungaria_wo=AU_HU_IS(:,7);
-cazuri_noi_pe_zi_Ungaria_wo=AU_HU_IS(:,8);
-cazuri_active_Ungaria_wo=AU_HU_IS(:,9);
-decese_Ungaria_wo=AU_HU_IS(:,10);
-decese_pe_zi_Ungaria_wo=AU_HU_IS(:,11);
+wo_Ungaria_cazuri_totale=AU_HU_IS(:,7);
+wo_Ungaria_cazuri_noi_pe_zi=AU_HU_IS(:,8);
+wo_Ungaria_cazuri_active=AU_HU_IS(:,9);
+wo_Ungaria_decese=AU_HU_IS(:,10);
+wo_Ungaria_decese_pe_zi=AU_HU_IS(:,11);
 
 % Austria
-cazuri_totale_Austria_wo=AU_HU_IS(:,12);
-cazuri_noi_pe_zi_Austria_wo=AU_HU_IS(:,13);
-cazuri_active_Austria_wo=AU_HU_IS(:,14);
-decese_Austria_wo=AU_HU_IS(:,15);
-decese_pe_zi_Austria_wo=AU_HU_IS(:,16);
+wo_Austria_cazuri_totale=AU_HU_IS(:,12);
+wo_Austria_cazuri_noi_pe_zi=AU_HU_IS(:,13);
+wo_Austria_cazuri_active=AU_HU_IS(:,14);
+wo_Austria_decese=AU_HU_IS(:,15);
+wo_Austria_decese_pe_zi=AU_HU_IS(:,16);
 
 % Romania
-cazuri_totale_Romania_wo=AU_HU_IS(:,17);
-cazuri_noi_pe_zi_Romania_wo=AU_HU_IS(:,18);
-cazuri_active_Romania_wo=AU_HU_IS(:,19);
-decese_Romania_wo=AU_HU_IS(:,20);
-decese_pe_zi_Romania_wo=AU_HU_IS(:,21);
+wo_Romania_cazuri_totale=AU_HU_IS(:,17);
+wo_Romania_cazuri_noi_pe_zi=AU_HU_IS(:,18);
+wo_Romania_cazuri_active=AU_HU_IS(:,19);
+wo_Romania_decese=AU_HU_IS(:,20);
+wo_Romania_decese_pe_zi=AU_HU_IS(:,21);
 
 % scoatem termeni NaN
 x=AU_HU_IS(:,23);
-cazuri_noi_pe_sapt_Romania_saptamani_wo = x(~isnan(x));
+wo_Romania_cazuri_noi_pe_sapt_zile = x(~isnan(x));
 
 x=AU_HU_IS(:,24);   
-cazuri_noi_pe_sapt_Romania_wo = x(~isnan(x));
-%cazuri_noi_pe_sapt_Romania_wo = circshift(cazuri_noi_pe_sapt_Romania_wo,-1);
+wo_Romania_cazuri_noi_pe_sapt = x(~isnan(x));
+%wo_Romania_cazuri_noi_pe_sapt = circshift(wo_Romania_cazuri_noi_pe_sapt,-1);
 % stergem variabilele neutilizate
-clear('AU_HU_IS','Cazuri','x');
+clear('AU_HU_IS','Cazuri','x','cnstbt','filename','filepath','Folder','full_filename');
