@@ -8,18 +8,75 @@
     <script type="text/javascript" src="/assets/libs/axios.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/regression/2.0.1/regression.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.10.3/xlsx.full.min.js"></script>
-    
+    <script type="text/javascript" src="/assets/js/ex.js"></script>
+    <script type="text/javascript" src="/assets/js/test.js"></script>
 
 </head>
 
 <body>
+
+
+    <fieldset style="background-color: rgb(41, 252, 182); margin-bottom: 20px;"  >
+                    
+        <div class="form-group buttons_div">
+          <div class="col-md-12">
+              <ul class="nav_ul ul_buttons">
+                <p>Pentru cazuri pe Judet</p>
+                <p>Incarcati cate un fisier aici </p>
+                <p>Verificati sa aveti toate campurile completate pe coloana "Dată diagnostic"</p>
+                
+                <li><a id="browse" href="#">Browse fisier excel Cazuri</a></li>
+                
+            </ul>
+          </div>
+        </div>
+        <input style="display: none;" id="file" name="file" class="btn btn-default" type="file">
+        
+        </fieldset>
+
+        <fieldset style="background-color: rgb(4, 199, 134); " >
+                    
+            <div class="form-group buttons_div">
+              <div class="col-md-12">
+                  <ul class="nav_ul ul_buttons">
+                    <p>Pentru decedati pe Judet</p>
+                    <p>Incarcati cate un fisier aici </p>
+                    <p>Verificati sa aveti toate campurile completate pe coloana "Decedat la data:"</p>
+                    
+                    <li><a id="browse2" href="#">Browse fisier excel Decese</a></li>
+                    
+                </ul>
+              </div>
+            </div>
+            <input style="display: none;" id="file2" name="file2" class="btn btn-default" type="file">
+            
+            </fieldset>
+
+
+
+    <!--div id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+        <p>Verificati sa aveti toate campurile completate pe coloana "Dată diagnostic"</p>
+        <p>Trageti cate un fisier aici </p>
+      </div>
+      <div id="drop_zone" ondrop="dropHandler2(event);" ondragover="dragOverHandler2(event);">
+        <p>Verificati sa aveti toate campurile completate pe coloana "Decedat la data:"</p>
+        <p>Trageti cate un fisier aici </p>
+      </div-->
+
+    <br>
+    <br>
+
    <div id="profil">
        
        <div class="cazuri">
-    <button v-on:click="ex1()">Cazuri_cazuri_tot</button>&nbsp;<button v-on:click="ex2()">Cazuri_Ziua_fata_de_cazuri_cumulative</button>&nbsp;<button v-on:click="ex4()">Cazuri_Ziua_fata_de_cazuri/numar de cazuri totale (rata de crestere)</button>&nbsp;
-    <button v-on:click="cazuri_pe_judet()">numar de cazuri pe Judete</button>&nbsp;<br>
+    <button v-on:click="ex1()">Cazuri_cazuri_tot</button>&nbsp;<button v-on:click="ex2()">Cazuri_Ziua_fata_de_cazuri_cumulative</button>&nbsp;
      
        </div>
+       <div class="cazuri">
+        <button v-on:click="ex4()">Cazuri/numar de cazuri totale (rata de crestere)</button>&nbsp;
+        <button v-on:click="cazuri_pe_judet()">Numar de cazuri pe Judete</button>&nbsp;<br>
+         
+           </div>
 
     <div class="cazuri">
         <button v-on:click="ex6()">Frecvența pe grupe de vârstă</button>&nbsp; <button v-on:click="ex7()">Numarul de reproductie R</button>&nbsp;
@@ -27,6 +84,10 @@
 
        
     </div>
+
+
+ 
+
     <br>
     <div class="jud">
     <button v-on:click="caz_but()">Numar de cazuri pe Judet Simplificat </button>&nbsp;
@@ -75,7 +136,12 @@
    
    </div>
     <script type="module" src="/assets/js/profil.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/assets/js/test.js"></script>
+    <script src="/assets/js/test2.js"></script>
+    <!--script src="/assets/js-xlsx/xlsx.core.min.js"></script>
+    <script src="/assets/js-xlsx/cpexcel.js"></script>
+    <script src="/assets/js-xlsx/ods.js"></script-->
 </body>
 
 </html>

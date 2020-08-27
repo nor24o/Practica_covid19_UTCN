@@ -298,11 +298,11 @@ function run() {
       });
 
       
-         axios.get('https://2019ncov-api.now.sh/api/cases.json' ).then(res => {
+       /*  axios.get('https://2019ncov-api.now.sh/api/cases.json' ).then(res => {
            console.log(res.data);
            
          });
-         
+         */
       axios.get('https://covid19.geo-spatial.org/api/dashboard/getPercentageByGender').then(res => {
         //     console.log(res.data);
 
