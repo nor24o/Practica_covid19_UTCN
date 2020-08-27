@@ -1,5 +1,5 @@
-1 deschideti fisierul xlsx si dati formnat pentru toata coloana "Decedat la data:" ca sa aiba formatul "5/31/2020" indiferent daca e in acel format afisat sau nu !
-1.5 Redenumiti "Județ reședință" ca "y" fara alte cuvinte 
+ Nu mai e nevoie de acest pas// deschideti fisierul xlsx si dati formnat pentru toata coloana "Decedat la data:" ca sa aiba formatul "5/31/2020" indiferent daca e in acel format afisat sau nu !
+1 Redenumiti "Județ reședință" ca "y" fara alte cuvinte 
 2 in caz ca aveti campuri lipsa cuati urmatoarea data si umpleti campurile goale cu acea valoare 
 3 se pune cate un fisiser excel redenumit ca "data.xlsx" in folderul "Script_generare_date\decese"
 4 in interfata web se apasa butonul "Numar de decese pe Judet Simplificat"
