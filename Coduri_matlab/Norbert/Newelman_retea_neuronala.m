@@ -30,7 +30,7 @@
     uo= con2seq(u);
     y=sim(net2,uo) ;
     z = seq2con(y);
-    op=cell2mat(z)
+    op=cell2mat(z);
 
     plot(u,op,'r')
 

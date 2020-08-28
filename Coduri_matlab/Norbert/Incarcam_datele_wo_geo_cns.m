@@ -1,8 +1,8 @@
 
 % Director principal fisiere
 
-           path='C:\Users\horva\Desktop\Practica\Practica_covid19_UTCN\Databaser\';
-
+           path='C:\Users\horva\Desktop\Practica\Practica_covid19_UTCN\Database\';
+%%
 % incarcare date pentru https://covid19.geo-spatial.org/
 
             try

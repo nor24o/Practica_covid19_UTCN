@@ -6,11 +6,9 @@ Cazuri = xlsread( strcat(path,'Cazuri.xlsx' )) ;
 calitate_aer =  xlsread( strcat(path,'aerlive_data.xlsx' )) ;
 AU_HU_IS = xlsread( strcat(path,'Australia_Ungaria_Israel_worldometer.xlsx' )) ;
 Decese = xlsread( strcat(path,'Decese.xlsx' )) ;
-Europa =  xlsread( strcat(path,'Europa.xlsx' )) ;
 Frontiera =  xlsread( strcat(path,'Frontiera.xlsx' )) ;
 teste = xlsread( strcat(path,'teste.xlsx' )) ;
 Waze = xlsread( strcat(path,'Waze.xlsx' )) ;
-
 %date de pe worldomeres 
 elvetia2 = xlsread( strcat(path,'Elvetia.xlsx' )) ;
 Franta = xlsread( strcat(path,'Franta.xlsx' )) ;
@@ -93,61 +91,6 @@ cazuri_noi_pe_zi_Austria=AU_HU_IS(:,13);
 cazuri_active_Austria=AU_HU_IS(:,14);
 decese_Austria=AU_HU_IS(:,15);
 decese_pe_zi_Austria=AU_HU_IS(:,16);
-
-
-%% Heat map Europa cu date de pe https://covid19.geo-spatial.org/
-figure('Name','Europa')
-
-t4=Europa(:,1);
-Rusia=Europa(:,2);
-UK = Europa(:,3);
-Spania=Europa(:,4);
-Italia=Europa(:,5);
-Turcia=Europa(:,6);
-Germaniaa=Europa(:,7);
-Frantaa=Europa(:,8);
-Suedia=Europa(:,9);
-Belarus=Europa(:,10);
-Ucraina=Europa(:,11);
-Belgia=Europa(:,12);
-Olanda=Europa(:,13);
-Portugalia=Europa(:,14);
-Romania=Europa(:,15);
-Polonia=Europa(:,16);
-Elvetia=Europa(:,17);
-Irlanda=Europa(:,18);
-Serbia=Europa(:,19);
-Moldova=Europa(:,20);
-Austria=Europa(:,21);
-Cehia=Europa(:,22);
-Danemarca=Europa(:,23);
-Bulgaria=Europa(:,24);
-Bosnia=Europa(:,25);
-Norvegia=Europa(:,26);
-Finlanda=Europa(:,27);
-Luxemburg=Europa(:,28);
-Croatia=Europa(:,29);
-Albania=Europa(:,30);
-Ungaria=Europa(:,31);
-Grecia=Europa(:,32);
-Muntenegru=Europa(:,33);
-Slovacia=Europa(:,34);
-Slovenia=Europa(:,35);
-Estonia=Europa(:,36);
-Cipru=Europa(:,37);
-Andora=Europa(:,38);
-Malta=Europa(:,39);
-SanMarino=Europa(:,40);
-Monaco=Europa(:,41);
-Liechtenstein=Europa(:,42);
-Lituania=Europa(:,43);
-Islanda=Europa(:,44);
-Letonia=Europa(:,45);
-plot(t4,[Rusia,UK,Spania,	Italia,	Turcia,	Germaniaa,	Frantaa,	Suedia,	Belarus	,Ucraina,	Belgia,	Olanda	,Portugalia,Romania,	Polonia,	Elvetia,	Irlanda	,Serbia	,Moldova	,Austria	,Cehia	,Danemarca	,Bulgaria	,Bosnia ,	Norvegia,	Finlanda	,Luxemburg,	Croatia,	Albania,	Ungaria	,Grecia	,Muntenegru	,Slovacia,	Slovenia,	Estonia,	Lituania,	Islanda	,Letonia,	Cipru,	Andora,	Malta,	SanMarino,	Monaco,	Liechtenstein]);
-legend('Rusia','UK','Spania','Italia','Turcia','Germaniaa','Frantaa','Suedia','Belarus','Ucraina','Belgia','Olanda','Portugalia','Romania','Polonia','Elvetia','Irlanda','Serbia','Moldova','Austria','Cehia','Danemarca','Bulgaria	','Bosnia','Norvegia','Finlanda','Luxemburg','Croatia','Albania','Ungaria	','Grecia	','Muntenegru	','Slovacia','Slovenia','Estonia','Lituania','Islanda','Letonia','Cipru','Andora','Malta','SanMarino','Monaco','Liechtenstein')
-%%
-
-
 
 %% Calitate aer cu date de pe https://covid19.geo-spatial.org/
 t5=calitate_aer(:,1);
@@ -279,7 +222,7 @@ legend('Daily Deaths')
 hold off
 
 
-%%
+%% Spania
 t10=spania(:,1);
 total_cases3=spania(:,2);
 total_daily3=spania(:,3);
@@ -304,7 +247,7 @@ plot(t10,daily_deaths_spania,'r')
 legend('Daily Deaths')
 
 hold off
-%%
+%% Italia
 t10=italia(:,1);
 total_cases3=italia(:,2);
 total_daily3=italia(:,3);
@@ -329,7 +272,7 @@ plot(t10,daily_deaths_italia,'r')
 legend('Daily Deaths')
 
 hold off
-%%
+%% Marea Britanie
 
 t10=uk(:,1);
 total_cases3=uk(:,2);
@@ -359,7 +302,7 @@ hold off
 
 
 
-%%
+%% Statele Unite ale Americi
 t10=usa(:,1);
 total_cases3=usa(:,2);
 total_daily3=usa(:,3);
@@ -384,7 +327,7 @@ plot(t10,daily_deaths_usa,'r')
 legend('Daily Deaths')
 hold off
 
-%%
+%% Portugalia
 t10=portugalia(:,1);
 total_cases3=portugalia(:,2);
 total_daily3=portugalia(:,3);

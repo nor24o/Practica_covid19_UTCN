@@ -195,7 +195,7 @@ hold off
      for i=1:length(yu)
          LegendsStrings{i} = string(yu(i));
          hold on
-         plot(dat,vall(i,:))
+         semilogy(dat,vall(i,:))
      end
      xticks(0:5:length(dat))
      legend(LegendsStrings, 'Interpreter', 'none')
@@ -214,7 +214,7 @@ hold off
      for i=1:length(yu)
          LegendsStrings{i} = string(yu(i));
          hold on
-         plot(dat,vall(i,:))
+        semilogy(dat,vall(i,:))
      end
      xticks(0:5:length(dat))
      legend(LegendsStrings, 'Interpreter', 'none')
