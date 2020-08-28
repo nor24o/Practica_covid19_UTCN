@@ -8,7 +8,7 @@
             try
                 Cazuri = xlsread( strcat(path,'Norbert\Cazuri.xlsx' )) ;
             catch
-                [filename, filepath] = uigetfile( 'Cazuri.xlsx' ) ;
+                [filename, filepath] = uigetfile( 'Cazuri*.xlsx' ) ;
                 full_filename = fullfile(filepath, filename);
                 Cazuri = xlsread( strcat(full_filename)) ;
                 Folder = filepath(1:end-8)
@@ -47,7 +47,7 @@ geo_ro_spatial_cazuri_pe_sapt = x(~isnan(x));
             try
                 cnstbt = xlsread( strcat(path,'Norbert\cnscbt.xlsx' )) ;
             catch
-                [filename, filepath] = uigetfile( 'cnscbt.xlsx' ) ;
+                [filename, filepath] = uigetfile( 'cnscbt*.xlsx' ) ;
                 full_filename = fullfile(filepath, filename);
                 cnstbt = xlsread( full_filename) ;
                 Folder = filepath(1:end-8)
@@ -61,7 +61,7 @@ cns_cazuri_cazuri_pe_sapt=cnstbt(:,1);
             try
                 AU_HU_IS = xlsread( strcat(path,'Norbert\Australia_Ungaria_Israel_worldometer.xlsx' )) ;
             catch
-                [filename, filepath] = uigetfile( 'Australia_Ungaria_Israel_worldometer.xlsx' ) ;
+                [filename, filepath] = uigetfile( 'Australia_Ungaria_Israel_worldometer*.xlsx' ) ;
                 full_filename = fullfile(filepath, filename);
                 AU_HU_IS = xlsread( full_filename) ;
                 Folder = filepath(1:end-8)
@@ -108,3 +108,13 @@ wo_Romania_cazuri_noi_pe_sapt = x(~isnan(x));
 %wo_Romania_cazuri_noi_pe_sapt = circshift(wo_Romania_cazuri_noi_pe_sapt,-1);
 % stergem variabilele neutilizate
 clear('AU_HU_IS','Cazuri','x','cnstbt','filename','filepath','Folder','full_filename');
+
+
+
+ 
+ 
+
+ 
+
+
+

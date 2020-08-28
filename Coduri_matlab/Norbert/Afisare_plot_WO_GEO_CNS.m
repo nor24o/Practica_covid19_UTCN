@@ -183,6 +183,83 @@ title('Cazurile totale suprapuse pentru Romania ,sursa date covid19.geo-spatial,
 xticks(0 : x)
 hold off
 
+%% Cazuri pe judet date de pe geo-spatial
+ try
+     [numbers, TEXT, everything]  = xlsread( strcat(path,'Norbert\Cazuri_pe_judete_A-Z_tr.xlsx' )) ;
+     yu=TEXT(:,1);
+     yu(1:2,:)=[];
+     vall=numbers;
+     vall(1:1,:)=[];
+     dat=numbers(1,:)
+     LegendsStrings = cell(length(yu),1)
+     for i=1:length(yu)
+         LegendsStrings{i} = string(yu(i));
+         hold on
+         plot(dat,vall(i,:))
+     end
+     xticks(0:5:length(dat))
+     legend(LegendsStrings, 'Interpreter', 'none')
+ catch
+     [filename, filepath] = uigetfile( 'Cazuri_pe_judete_A-Z_tr*.xlsx' ) ;
+     full_filename = fullfile(filepath, filename);
+     [numbers, TEXT, everything] = xlsread( full_filename) ;
+     Folder = filepath(1:end-8)
+     path=Folder;
+          yu=TEXT(:,1);
+     yu(1:2,:)=[];
+     vall=numbers;
+     vall(1:1,:)=[];
+     dat=numbers(1,:)
+     LegendsStrings = cell(length(yu),1)
+     for i=1:length(yu)
+         LegendsStrings{i} = string(yu(i));
+         hold on
+         plot(dat,vall(i,:))
+     end
+     xticks(0:5:length(dat))
+     legend(LegendsStrings, 'Interpreter', 'none')
+ end
+ 
+ 
+  %% Cazuri Tari Europa
+  try
+     [numbers, TEXT, everything] =  xlsread( strcat(path,'Cornestean\Europa_cazuri_confirmate.xlsx' )) ;
+     yu=TEXT(:,1);
+     yu(1:2,:)=[];
+     vall=numbers;
+     vall(1:1,:)=[];
+     dat=numbers(2,:)
+     LegendsStrings = cell(length(yu),1)
+     for i=1:length(yu)
+         LegendsStrings{i} = string(yu(i));
+         hold on
+         semilogy(dat,vall(i,:))
+     end
+     xticks(0:5:length(dat))
+     legend(LegendsStrings, 'Interpreter', 'none')
+ catch
+     [filename, filepath] = uigetfile( 'Europa_cazuri_confirmate*.xlsx' ) ;
+     full_filename = fullfile(filepath, filename);
+     [numbers, TEXT, everything] = xlsread( full_filename) ;
+     Folder = filepath(1:end-11)
+     path=Folder;
+     yu=TEXT(:,1);
+     yu(1:2,:)=[];
+     vall=numbers;
+     vall(1:1,:)=[];
+     dat=numbers(2,:)
+     LegendsStrings = cell(length(yu),1)
+     for i=1:length(yu)
+         LegendsStrings{i} = string(yu(i));
+         hold on
+         semilogy(dat,vall(i,:))
+     end
+     xticks(0:5:length(dat))
+     legend(LegendsStrings, 'Interpreter', 'none')
+ end
+
+
+
 
 %%
 

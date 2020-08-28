@@ -145,6 +145,9 @@ Islanda=Europa(:,44);
 Letonia=Europa(:,45);
 plot(t4,[Rusia,UK,Spania,	Italia,	Turcia,	Germaniaa,	Frantaa,	Suedia,	Belarus	,Ucraina,	Belgia,	Olanda	,Portugalia,Romania,	Polonia,	Elvetia,	Irlanda	,Serbia	,Moldova	,Austria	,Cehia	,Danemarca	,Bulgaria	,Bosnia ,	Norvegia,	Finlanda	,Luxemburg,	Croatia,	Albania,	Ungaria	,Grecia	,Muntenegru	,Slovacia,	Slovenia,	Estonia,	Lituania,	Islanda	,Letonia,	Cipru,	Andora,	Malta,	SanMarino,	Monaco,	Liechtenstein]);
 legend('Rusia','UK','Spania','Italia','Turcia','Germaniaa','Frantaa','Suedia','Belarus','Ucraina','Belgia','Olanda','Portugalia','Romania','Polonia','Elvetia','Irlanda','Serbia','Moldova','Austria','Cehia','Danemarca','Bulgaria	','Bosnia','Norvegia','Finlanda','Luxemburg','Croatia','Albania','Ungaria	','Grecia	','Muntenegru	','Slovacia','Slovenia','Estonia','Lituania','Islanda','Letonia','Cipru','Andora','Malta','SanMarino','Monaco','Liechtenstein')
+%%
+
+
 
 %% Calitate aer cu date de pe https://covid19.geo-spatial.org/
 t5=calitate_aer(:,1);
