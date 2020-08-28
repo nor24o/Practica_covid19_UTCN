@@ -1,7 +1,7 @@
 %% incarcare date
 
-inputs=data_zile'
-targets=cazuri_totale_ro_geo'
+inputs=geo_ro_timp'
+targets=geo_ro_cazuri_totale'
 
 net = feedforwardnet(20,'trainlm');
 net.divideParam.trainRatio = 70/100;
@@ -19,12 +19,12 @@ y=sim(net2,u)' ;
 
 plot(u,y,'r')
 hold on 
-plot(data_zile,targets','b')
+plot(wo_timp,targets','b')
      
 	 
 %% incarcare date
-inputs=data_zile'
-targets=cazuri_totale_ro_geo'
+inputs=wo_timp'
+targets=geo_ro_cazuri_totale'
 
 net = newff(inputs,targets,20);
 
@@ -39,5 +39,5 @@ y=sim(net2,u)' ;
 
 plot(u,y,'r')
 hold on 
-plot(data_zile,targets','b')
+plot(inputs',targets','b')
      

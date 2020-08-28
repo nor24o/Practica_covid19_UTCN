@@ -183,6 +183,124 @@ title('Cazurile totale suprapuse pentru Romania ,sursa date covid19.geo-spatial,
 xticks(0 : x)
 hold off
 
+%% Cazuri pe judet date de pe geo-spatial
+ try
+     [numbers, TEXT, everything]  = xlsread( strcat(path,'Norbert\Cazuri_pe_judete_A-Z_tr.xlsx' )) ;
+     yu=TEXT(:,1);
+     yu(1:2,:)=[];
+     vall=numbers;
+     vall(1:1,:)=[];
+     dat=numbers(1,:)
+     LegendsStrings = cell(length(yu),1)
+     figure;
+     for i=1:length(yu)
+         LegendsStrings{i} = string(yu(i));
+         hold on
+         tesss(i)=mean(vall(:,i))
+         semilogy(dat,vall(i,:))
+     end
+     title('Cazuri pe judet date de pe geo-spatial')
+     hold off
+     xticks(0:5:length(dat))
+     legend(LegendsStrings, 'Interpreter', 'none')
+     figure;
+     plot(1:length(tesss),tesss)
+     title('Media cazurilor ')
+     xticks(0:5:length(dat))
+     legend('Media judetelor')
+ catch
+     [filename, filepath] = uigetfile( 'Cazuri_pe_judete_A-Z_tr*.xlsx' ) ;
+     full_filename = fullfile(filepath, filename);
+     [numbers, TEXT, everything] = xlsread( full_filename) ;
+     Folder = filepath(1:end-8)
+     path=Folder;
+          yu=TEXT(:,1);
+     yu(1:2,:)=[];
+     vall=numbers;
+     vall(1:1,:)=[];
+     dat=numbers(1,:)
+     LegendsStrings = cell(length(yu),1)
+     figure;
+     
+     for i=1:length(yu)
+         LegendsStrings{i} = string(yu(i));
+         hold on
+        tesss(i)=mean(vall(:,i))
+        semilogy(dat,vall(i,:))
+     end
+     title('Cazuri pe judet date de pe geo-spatial')
+     hold off
+     xticks(0:5:length(dat))
+     legend(LegendsStrings, 'Interpreter', 'none')
+     figure;
+     plot(1:length(tesss),tesss)
+     title('Media cazurilor ')
+     xticks(0:5:length(dat))
+     legend('Media judetelor')
+ end
+ %%
+ 
+ 
+ 
+  %% Cazuri Tari Europa
+  try
+     [numbers, TEXT, everything] =  xlsread( strcat(path,'Cornestean\Europa_cazuri_confirmate.xlsx' )) ;
+     clear yu vall dat
+     yu=TEXT(:,1);
+     yu(1:2,:)=[];
+     vall=numbers;
+     vall(1:1,:)=[];
+     dat=numbers(2,:)
+     LegendsStrings = cell(length(yu),1)
+     figure;
+     
+     for i=1:length(yu)
+         LegendsStrings{i} = string(yu(i));
+         tesss(i)=sum(vall(:,i))
+         hold on
+         semilogy(dat,vall(i,:))
+     end
+     hold off
+     title('Cazuri Tari Europa')
+     xticks(0:5:length(dat))
+     legend(LegendsStrings, 'Interpreter', 'none')
+     figure;
+     plot(1:length(tesss),tesss)
+     title('Suma cazurilor Europa ')
+     xticks(0:5:length(dat))
+     legend('Suma caz pe Europa')
+ catch
+     [filename, filepath] = uigetfile( 'Europa_cazuri_confirmate*.xlsx' ) ;
+     full_filename = fullfile(filepath, filename);
+     [numbers, TEXT, everything] = xlsread( full_filename) ;
+     Folder = filepath(1:end-11)
+     path=Folder;
+     yu=TEXT(:,1);
+     yu(1:2,:)=[];
+     vall=numbers;
+     vall(1:1,:)=[];
+     dat=numbers(2,:)
+     LegendsStrings = cell(length(yu),1)
+     figure;
+     for i=1:length(yu)
+         LegendsStrings{i} = string(yu(i));
+         tesss(i)=sum(vall(:,i))
+         hold on
+         semilogy(dat,vall(i,:))
+     end
+     title('Cazuri Tari Europa')
+     hold off
+     xticks(0:5:length(dat))
+     legend(LegendsStrings, 'Interpreter', 'none')
+     figure;
+     plot(1:length(tesss),tesss)
+     title('Suma cazurilor Europa ')
+     xticks(0:5:length(dat))
+     legend('Suma Caz pe Europa')
+ end
+
+
+
 
 %%
 
