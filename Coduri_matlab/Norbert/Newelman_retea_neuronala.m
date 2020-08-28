@@ -31,7 +31,8 @@
     y=sim(net2,uo) ;
     z = seq2con(y);
     op=cell2mat(z);
-
+    figure;
+    title('Retea Neuronala Elman')
     plot(u,op,'r')
 
     hold on
