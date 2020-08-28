@@ -204,10 +204,10 @@ hold off
      xticks(0:5:length(dat))
      legend(LegendsStrings, 'Interpreter', 'none')
      figure;
-     plot(1:length(tesss),tesss)
-     title('Media cazurilor ')
+     plot(length(tesss),tesss)
+     title('Media cazurilor')
      xticks(0:5:length(dat))
-     legend('Media judetelor')
+     legend('Media cazurilor')
  catch
      [filename, filepath] = uigetfile( 'Cazuri_pe_judete_A-Z_tr*.xlsx' ) ;
      full_filename = fullfile(filepath, filename);
@@ -232,11 +232,6 @@ hold off
      hold off
      xticks(0:5:length(dat))
      legend(LegendsStrings, 'Interpreter', 'none')
-     figure;
-     plot(1:length(tesss),tesss)
-     title('Media cazurilor ')
-     xticks(0:5:length(dat))
-     legend('Media judetelor')
  end
  %%
  
@@ -256,20 +251,13 @@ hold off
      
      for i=1:length(yu)
          LegendsStrings{i} = string(yu(i));
-         tesss(i)=sum(vall(:,i))
          hold on
          semilogy(dat,vall(i,:))
      end
-     
+     hold off
      title('Cazuri Tari Europa')
      xticks(0:5:length(dat))
      legend(LegendsStrings, 'Interpreter', 'none')
-     figure;
-     plot(1:length(tesss),tesss)
-     title('Suma cazurilor Europa ')
-     xticks(0:5:length(dat))
-     legend('Suma caz pe Europa')
-     hold off
  catch
      [filename, filepath] = uigetfile( 'Europa_cazuri_confirmate*.xlsx' ) ;
      full_filename = fullfile(filepath, filename);
@@ -285,78 +273,13 @@ hold off
      figure;
      for i=1:length(yu)
          LegendsStrings{i} = string(yu(i));
-         tesss(i)=sum(vall(:,i))
          hold on
          semilogy(dat,vall(i,:))
      end
      title('Cazuri Tari Europa')
-     
+     hold off
      xticks(0:5:length(dat))
      legend(LegendsStrings, 'Interpreter', 'none')
-     figure;
-     plot(1:length(tesss),tesss)
-     title('Suma cazurilor Europa ')
-     xticks(0:5:length(dat))
-     legend('Suma Caz pe Europa')
-     hold off
-  end
- 
-  %% Decese Tari Europa
-  try
-     [numbers, TEXT, everything] =  xlsread( strcat(path,'Cornestean\Europa_decese.xlsx' )) ;
-     clear yu vall dat
-     yu=TEXT(:,1);
-     yu(1:2,:)=[];
-     vall=numbers;
-     vall(1:1,:)=[];
-     dat=numbers(1,:)
-     LegendsStrings = cell(length(yu),1)
-     figure;
-     for i=1:length(yu)
-         LegendsStrings{i} = string(yu(i));
-         tesss(i)=sum(vall(:,i))
-         hold on
-         semilogy(dat,vall(i,:))
-     end
-     
-     title('Decese Tari Europa')
-     legend(LegendsStrings, 'Interpreter', 'none')
-     xticks(0:5:length(dat))
-     
-     figure;
-     plot(1:length(tesss),tesss)
-     title('Suma deceselor Europa ')
-     xticks(0:5:length(dat))
-     legend('Suma deces pe Europa')
-     hold off
- catch
-     [filename, filepath] = uigetfile( 'Europa_decese*.xlsx' ) ;
-     full_filename = fullfile(filepath, filename);
-     [numbers, TEXT, everything] = xlsread( full_filename) ;
-     Folder = filepath(1:end-11)
-     path=Folder;
-     yu=TEXT(:,1);
-     yu(1:2,:)=[];
-     vall=numbers;
-     vall(1:1,:)=[];
-     dat=numbers(1,:)
-     LegendsStrings = cell(length(yu),1)
-     figure;
-     for i=1:length(yu)
-         LegendsStrings{i} = string(yu(i));
-         tesss(i)=sum(vall(:,i))
-         hold on
-         semilogy(dat,vall(i,:))
-     end
-     title('Decese Tari Europa')
-     xticks(0:5:length(dat))
-     legend(LegendsStrings, 'Interpreter', 'none')
-     figure;
-     plot(1:length(tesss),tesss)
-     title('Suma deceselor Europa ')
-     xticks(0:5:length(dat))
-     legend('Suma deces pe Europa')
-     hold off
  end
 
 
