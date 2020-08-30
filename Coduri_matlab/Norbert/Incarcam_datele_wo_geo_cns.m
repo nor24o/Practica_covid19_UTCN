@@ -31,14 +31,48 @@ geo_ro_rata_de_crestere=Cazuri(:,8);
 geo_ro_frecventa_pe_grupe_varste=Cazuri(:,9);
 geo_ro_frecventa_pe_grupe_frecventa=Cazuri(:,10);
 
-nr_de_reproductie_virus_R=Cazuri(:,11);
-nr_de_reproductie_virus_R25=Cazuri(:,12);
-nr_de_reproductie_virus_R75=Cazuri(:,13);
-nr_de_reproductie_virus_R05=Cazuri(:,14);
-nr_de_reproductie_virus_R95=Cazuri(:,15);
-nr_de_reproductie_virus_R025=Cazuri(:,16);
-nr_de_reproductie_virus_R975=Cazuri(:,17);
-% cazuri saptamanale
+%%
+            try
+                Num_reprod = xlsread( strcat(path,'Norbert\Numarul_de_reproductie_Sars-cov.xlsx' )) ;
+            catch
+                [filename, filepath] = uigetfile( 'Numarul_de_reproductie_Sars-cov*.xlsx' ) ;
+                full_filename = fullfile(filepath, filename);
+                Num_reprod = xlsread( strcat(full_filename)) ;
+                Folder = filepath(1:end-8)
+                path=Folder;             
+            end
+            
+            try
+            [numbers, TEXT, everything]  = xlsread( strcat(path,'Norbert\Cazuri_pe_judete_A-Z_tr.xlsx' )) ;
+            yu=TEXT;
+            catch
+                [filename, filepath] = uigetfile( 'Cazuri_pe_judete_A-Z_tr*.xlsx' ) ;
+                full_filename = fullfile(filepath, filename);
+                [numbers, TEXT, everything] = xlsread( strcat(full_filename)) ;
+                Folder = filepath(1:end-8)
+                path=Folder;             
+            end
+numbers(1,:)=[];
+num_target=numbers(:,1:178);
+num_targ_test=numbers(:,1:100);
+
+nr_de_reproductie_virus_ziua=Num_reprod(1,:);
+nr_de_reproductie_virus_R=Num_reprod(2,:);
+nr_de_reproductie_virus_R25=Num_reprod(2,:);
+nr_de_reproductie_virus_R75=Num_reprod(3,:);
+nr_de_reproductie_virus_R05=Num_reprod(4,:);
+nr_de_reproductie_virus_R95=Num_reprod(5,:);
+nr_de_reproductie_virus_R025=Num_reprod(6,:);
+nr_de_reproductie_virus_R975=Num_reprod(7,:);
+
+Num_reprod(1,:)=[];
+input=Num_reprod;
+input_test=input(:,1:100);
+
+
+
+%% cazuri saptamanale
+
 x=Cazuri(:,18);
 geo_ro_spatial_cazuri_pe_sapt = x(~isnan(x));
 
@@ -55,8 +89,8 @@ geo_ro_spatial_cazuri_pe_sapt = x(~isnan(x));
             end
 
 cns_cazuri_cazuri_pe_sapt=cnstbt(:,1);
-%%
-    
+
+%%   
 % date de pe worldomeres 
             try
                 AU_HU_IS = xlsread( strcat(path,'Norbert\Australia_Ungaria_Israel_worldometer.xlsx' )) ;

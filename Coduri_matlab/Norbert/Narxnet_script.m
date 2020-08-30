@@ -19,17 +19,17 @@
 
     [p,Pi,Ai,t] = preparets(narx_net,u,{},y);
 
-    narx_net = train(narx_net,p,t,Pi,'useParallel','yes','showResources','yes');
+    narx_net = train(narx_net,p,t,Pi);
 
    %% ?
 
     pt=p(:,1:1:100)
-    yp = sim(narx_net,pt,Pi,'useParallel','yes','showResources','yes');
+    yp = sim(narx_net,p,Pi);
     
-    %yp2 = padarray(cell2mat(yp)',2,NaN,'pre');
+    yp2 = padarray(cell2mat(yp)',2,NaN,'pre');
     figure;
     
-    plot(u_org(1:100),cell2mat(yp)','r')
+    plot(u_org(1:195),cell2mat(yp2)','r')
     hold on
     plot(u_org,y_org,'b')
     legend( 'org','narxnet');

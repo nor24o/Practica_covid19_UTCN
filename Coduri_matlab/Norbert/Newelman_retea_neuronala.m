@@ -1,13 +1,8 @@
 
-    %%   Create an Elman backpropagation network cazuri totale
-
-    %Here is a series of Boolean inputs P, and another sequence T
-    % which is 1 wherever P has had two 1's in a row.
+    %%   Create an Elman backpropagation network Decese totale Romania
 
     P=geo_ro_timp';
-    T=geo_ro_cazuri_totale';
-
-    % We would like the network to recognize whenever two 1's
+    T=geo_ro_decese';
     % occur in a row.  First we arrange these values as sequences.
 
     Pseq = con2seq(P);
@@ -20,13 +15,9 @@
     net.trainparam.epochs = 9000;
     net.trainParam.max_fail = 200;
 
-
-    % Then we train the network with a mean squared error goal of
-    % 0.1, and simulate it.
-
     net2 = train(net,Pseq,Tseq);
 
-    u=0:1: 900;
+    u=0:1: 600;
     uo= con2seq(u);
     y=sim(net2,uo) ;
     z = seq2con(y);

@@ -25,11 +25,11 @@ title('Rata de crestere')
 
 
 %nr_de_reproductie_virus
-figure('Name','Nr de reproductie virus')
-plot(geo_ro_timp,[nr_de_reproductie_virus_R,nr_de_reproductie_virus_R25,nr_de_reproductie_virus_R75,nr_de_reproductie_virus_R05,nr_de_reproductie_virus_R95,nr_de_reproductie_virus_R025,nr_de_reproductie_virus_R975])
-title('Nr de reproductie virus')
+%figure('Name','Nr de reproductie virus')
+%plot(geo_ro_timp,[nr_de_reproductie_virus_R,nr_de_reproductie_virus_R25,nr_de_reproductie_virus_R75,nr_de_reproductie_virus_R05,nr_de_reproductie_virus_R95,nr_de_reproductie_virus_R025,nr_de_reproductie_virus_R975])
+%title('Nr de reproductie virus')
 
-%% Ploturi date de pe worldomeres 
+%% Ploturi date de pe worldomeres
 %Israel
 figure('Name','Cazuri pentru Israel worldomeres')
 hold off
@@ -136,7 +136,7 @@ hold off
 
 %% Afisare Cazuri totale Israel Austria Ungaria Romania suprapuse worldomeres
 figure;
-hold off 
+hold off
 hold on
 
 plot(wo_timp,wo_Israel_cazuri_totale,'m')
@@ -149,12 +149,12 @@ xticks(0 :5: 172)
 
 
 %% diferenta dintre cazuri totlae  https://covid19.geo-spatial.org/ si worldomeres  Romania
-%folosim pentru a egala matricele 
+%folosim pentru a egala matricele
 B = padarray(geo_ro_timp,10,0,'pre');
 %B_tot = padarray(geo_ro_cazuri_totale,10,0,'pre');
 
 figure
-hold on 
+hold on
 plot(wo_timp,wo_Romania_cazuri_totale,'r')
 plot(wo_timp,geo_ro_cazuri_totale,'black')
 
@@ -163,12 +163,12 @@ title('diferenta dintre cazuri totale geo-spatial si worldomeres  Romania')
 xticks(0 :5: 172)
 hold off
 
-%% diferenta dintre cazuri totlae  https://covid19.geo-spatial.org/ , cns si worldomeres  Romania suprapuse 
+%% diferenta dintre cazuri totlae  https://covid19.geo-spatial.org/ , cns si worldomeres  Romania suprapuse
 
 B_tots = padarray(cns_cazuri_cazuri_pe_sapt,2,NaN,'pos');
 
 figure('Name','diferenta dintre cazuri totlae  https://covid19.geo-spatial.org/ ,cns si worldomeres  Romania')
-hold on 
+hold on
 x=length(wo_Romania_cazuri_noi_pe_sapt_zile)-2;
 timp=0:1:x;
 
@@ -184,180 +184,203 @@ xticks(0 : x)
 hold off
 
 %% Cazuri pe judet date de pe geo-spatial
- try
-     [numbers, TEXT, everything]  = xlsread( strcat(path,'Norbert\Cazuri_pe_judete_A-Z_tr.xlsx' )) ;
-     yu=TEXT(:,1);
-     yu(1:2,:)=[];
-     vall=numbers;
-     vall(1:1,:)=[];
-     dat=numbers(1,:)
-     LegendsStrings = cell(length(yu),1)
-     figure;
-     for i=1:length(yu)
-         LegendsStrings{i} = string(yu(i));
-         hold on
-         tesss(i)=mean(vall(:,i))
-         semilogy(dat,vall(i,:))
-     end
-     title('Cazuri pe judet date de pe geo-spatial')
-     hold off
-     xticks(0:5:length(dat))
-     legend(LegendsStrings, 'Interpreter', 'none')
-     figure;
-     plot(1:length(tesss),tesss)
-     title('Media cazurilor ')
-     xticks(0:5:length(dat))
-     legend('Media judetelor')
- catch
-     [filename, filepath] = uigetfile( 'Cazuri_pe_judete_A-Z_tr*.xlsx' ) ;
-     full_filename = fullfile(filepath, filename);
-     [numbers, TEXT, everything] = xlsread( full_filename) ;
-     Folder = filepath(1:end-8)
-     path=Folder;
-          yu=TEXT(:,1);
-     yu(1:2,:)=[];
-     vall=numbers;
-     vall(1:1,:)=[];
-     dat=numbers(1,:)
-     LegendsStrings = cell(length(yu),1)
-     figure;
-     
-     for i=1:length(yu)
-         LegendsStrings{i} = string(yu(i));
-         hold on
-        tesss(i)=mean(vall(:,i))
+try
+    [numbers, TEXT, everything]  = xlsread( strcat(path,'Norbert\Cazuri_pe_judete_A-Z_tr.xlsx' )) ;
+    yu=TEXT(:,1);
+    yu(1:2,:)=[];
+    vall=numbers;
+    vall(1:1,:)=[];
+    dat=numbers(1,:)
+    LegendsStrings = cell(length(yu),1)
+    tesss = zeros(length(vall),1);
+    figure;
+    for i=1:length(yu)
+        LegendsStrings{i} = string(yu(i));
+        hold on
+        
         semilogy(dat,vall(i,:))
-     end
-     title('Cazuri pe judet date de pe geo-spatial')
-     hold off
-     xticks(0:5:length(dat))
-     legend(LegendsStrings, 'Interpreter', 'none')
-     figure;
-     plot(1:length(tesss),tesss)
-     title('Media cazurilor ')
-     xticks(0:5:length(dat))
-     legend('Media judetelor')
- end
- %%
- 
- 
- 
-  %% Cazuri Tari Europa
-  try
-     [numbers, TEXT, everything] =  xlsread( strcat(path,'Cornestean\Europa_cazuri_confirmate.xlsx' )) ;
-     clear yu vall dat
-     yu=TEXT(:,1);
-     yu(1:2,:)=[];
-     vall=numbers;
-     vall(1:1,:)=[];
-     dat=numbers(2,:)
-     LegendsStrings = cell(length(yu),1)
-     figure;
-     
-     for i=1:length(yu)
-         LegendsStrings{i} = string(yu(i));
-         tesss(i)=sum(vall(:,i))
-         hold on
-         semilogy(dat,vall(i,:))
-     end
-     
-     title('Cazuri Tari Europa')
-     xticks(0:5:length(dat))
-     legend(LegendsStrings, 'Interpreter', 'none')
-     figure;
-     plot(1:length(tesss),tesss)
-     title('Suma cazurilor Europa ')
-     xticks(0:5:length(dat))
-     legend('Suma caz pe Europa')
-     hold off
- catch
-     [filename, filepath] = uigetfile( 'Europa_cazuri_confirmate*.xlsx' ) ;
-     full_filename = fullfile(filepath, filename);
-     [numbers, TEXT, everything] = xlsread( full_filename) ;
-     Folder = filepath(1:end-11)
-     path=Folder;
-     yu=TEXT(:,1);
-     yu(1:2,:)=[];
-     vall=numbers;
-     vall(1:1,:)=[];
-     dat=numbers(2,:)
-     LegendsStrings = cell(length(yu),1)
-     figure;
-     for i=1:length(yu)
-         LegendsStrings{i} = string(yu(i));
-         tesss(i)=sum(vall(:,i))
-         hold on
-         semilogy(dat,vall(i,:))
-     end
-     title('Cazuri Tari Europa')
-     
-     xticks(0:5:length(dat))
-     legend(LegendsStrings, 'Interpreter', 'none')
-     figure;
-     plot(1:length(tesss),tesss)
-     title('Suma cazurilor Europa ')
-     xticks(0:5:length(dat))
-     legend('Suma Caz pe Europa')
-     hold off
-  end
- 
-  %% Decese Tari Europa
-  try
-     [numbers, TEXT, everything] =  xlsread( strcat(path,'Cornestean\Europa_decese.xlsx' )) ;
-     clear yu vall dat
-     yu=TEXT(:,1);
-     yu(1:2,:)=[];
-     vall=numbers;
-     vall(1:1,:)=[];
-     dat=numbers(1,:)
-     LegendsStrings = cell(length(yu),1)
-     figure;
-     for i=1:length(yu)
-         LegendsStrings{i} = string(yu(i));
-         tesss(i)=sum(vall(:,i))
-         hold on
-         semilogy(dat,vall(i,:))
-     end
-     
-     title('Decese Tari Europa')
-     legend(LegendsStrings, 'Interpreter', 'none')
-     xticks(0:5:length(dat))
-     
-     figure;
-     plot(1:length(tesss),tesss)
-     title('Suma deceselor Europa ')
-     xticks(0:5:length(dat))
-     legend('Suma deces pe Europa')
-     hold off
- catch
-     [filename, filepath] = uigetfile( 'Europa_decese*.xlsx' ) ;
-     full_filename = fullfile(filepath, filename);
-     [numbers, TEXT, everything] = xlsread( full_filename) ;
-     Folder = filepath(1:end-11)
-     path=Folder;
-     yu=TEXT(:,1);
-     yu(1:2,:)=[];
-     vall=numbers;
-     vall(1:1,:)=[];
-     dat=numbers(1,:)
-     LegendsStrings = cell(length(yu),1)
-     figure;
-     for i=1:length(yu)
-         LegendsStrings{i} = string(yu(i));
-         tesss(i)=sum(vall(:,i))
-         hold on
-         semilogy(dat,vall(i,:))
-     end
-     title('Decese Tari Europa')
-     xticks(0:5:length(dat))
-     legend(LegendsStrings, 'Interpreter', 'none')
-     figure;
-     plot(1:length(tesss),tesss)
-     title('Suma deceselor Europa ')
-     xticks(0:5:length(dat))
-     legend('Suma deces pe Europa')
-     hold off
- end
+    end
+    for j=1:length(vall)
+        tesss(j)=sum(vall(:,j))
+    end
+    title('Cazuri pe judet date de pe geo-spatial')
+    hold off
+    xticks(0:5:length(dat))
+    legend(LegendsStrings, 'Interpreter', 'none')
+    figure;
+    semilogy(1:length(tesss),tesss)
+    title('Suma cazurilor ')
+    xticks(0:5:length(dat))
+    legend('Suma judetelor')
+catch
+    [filename, filepath] = uigetfile( 'Cazuri_pe_judete_A-Z_tr*.xlsx' ) ;
+    full_filename = fullfile(filepath, filename);
+    [numbers, TEXT, everything] = xlsread( full_filename) ;
+    Folder = filepath(1:end-8)
+    path=Folder;
+    yu=TEXT(:,1);
+    yu(1:2,:)=[];
+    vall=numbers;
+    vall(1:1,:)=[];
+    dat=numbers(1,:)
+    LegendsStrings = cell(length(yu),1)
+    tesss = zeros(length(vall),1);
+    figure;
+    
+    for i=1:length(yu)
+        LegendsStrings{i} = string(yu(i));
+        hold on
+        semilogy(dat,vall(i,:))
+    end
+    for j=1:length(vall)
+        tesss(j)=sum(vall(:,j))
+    end
+    title('Cazuri pe judet date de pe geo-spatial')
+    hold off
+    xticks(0:5:length(dat))
+    legend(LegendsStrings, 'Interpreter', 'none')
+    figure;
+    semilogy(1:length(tesss),tesss)
+    title('Suma cazurilor ')
+    xticks(0:5:length(dat))
+    legend('Suma judetelor')
+end
+%%
+
+
+
+%% Cazuri Tari Europa
+try
+    [numbers, TEXT, everything] =  xlsread( strcat(path,'Cornestean\Europa_cazuri_confirmate.xlsx' )) ;
+    clear yu vall dat
+    yu=TEXT(:,1);
+    yu(1:2,:)=[];
+    vall=numbers;
+    vall(1:1,:)=[];
+    dat=numbers(2,:)
+    LegendsStrings = cell(length(yu),1)
+    tesss = zeros(length(vall),1)';
+    figure;
+    
+    for i=1:length(yu)
+        LegendsStrings{i} = string(yu(i));
+        hold on
+        semilogy(dat,vall(i,:))
+    end
+    for j=1:length(vall)
+        tesss(j)=sum(vall(:,j))
+    end
+    
+    title('Cazuri Tari Europa')
+    xticks(0:5:length(dat))
+    legend(LegendsStrings, 'Interpreter', 'none')
+    
+    figure;
+    semilogy(1:length(tesss),tesss)
+    title('Suma cazurilor Europa ')
+    xticks(0:5:length(dat))
+    legend('Suma caz pe Europa')
+    hold off
+catch
+    [filename, filepath] = uigetfile( 'Europa_cazuri_confirmate*.xlsx' ) ;
+    full_filename = fullfile(filepath, filename);
+    [numbers, TEXT, everything] = xlsread( full_filename) ;
+    Folder = filepath(1:end-11)
+    path=Folder;
+    yu=TEXT(:,1);
+    yu(1:2,:)=[];
+    vall=numbers;
+    vall(1:1,:)=[];
+    dat=numbers(2,:)
+    LegendsStrings = cell(length(yu),1)
+    tesss = zeros(length(vall),1)';
+    figure;
+    for i=1:length(yu)
+        LegendsStrings{i} = string(yu(i));
+        hold on
+        semilogy(dat,vall(i,:))
+    end
+    for j=1:length(vall)
+        tesss(j)=sum(vall(:,j))
+    end
+    title('Cazuri Tari Europa')
+    xticks(0:5:length(dat))
+    legend(LegendsStrings, 'Interpreter', 'none')
+    
+    figure;
+    semilogy(1:length(tesss),tesss)
+    title('Suma cazurilor Europa ')
+    xticks(0:5:length(dat))
+    legend('Suma Caz pe Europa')
+    hold off
+end
+
+%% Decese Tari Europa
+try
+    [numbers, TEXT, everything] =  xlsread( strcat(path,'Cornestean\Europa_decese.xlsx' )) ;
+    clear yu vall dat
+    yu=TEXT(:,1);
+    yu(1:2,:)=[];
+    vall=numbers;
+    vall(1:1,:)=[];
+    dat=numbers(1,:)
+    LegendsStrings = cell(length(yu),1)
+    tesss = zeros(length(vall),1)';
+    figure;
+    for i=1:length(yu)
+        LegendsStrings{i} = string(yu(i));
+        hold on
+        semilogy(dat,vall(i,:))
+    end
+    
+    for j=1:length(vall)
+        tesss(j)=sum(vall(:,j))
+    end
+    
+    title('Decese Tari Europa')
+    legend(LegendsStrings, 'Interpreter', 'none')
+    xticks(0:5:length(dat))
+  
+    figure;
+    semilogy(1:length(tesss),tesss)
+    title('Suma deceselor Europa ')
+    xticks(0:5:length(dat))
+    legend('Suma deces pe Europa')
+    hold off
+catch
+    [filename, filepath] = uigetfile( 'Europa_decese*.xlsx' ) ;
+    full_filename = fullfile(filepath, filename);
+    [numbers, TEXT, everything] = xlsread( full_filename) ;
+    Folder = filepath(1:end-11)
+    path=Folder;
+    yu=TEXT(:,1);
+    yu(1:2,:)=[];
+    vall=numbers;
+    vall(1:1,:)=[];
+    dat=numbers(1,:)
+    LegendsStrings = cell(length(yu),1)
+    tesss = zeros(length(vall),1)';
+    figure;
+    for i=1:length(yu)
+        LegendsStrings{i} = string(yu(i));
+        hold on
+        semilogy(dat,vall(i,:))
+    end
+    
+    for j=1:length(vall)
+        tesss(j)=sum(vall(:,j))
+    end
+    title('Decese Tari Europa')
+    xticks(0:5:length(dat))
+    legend(LegendsStrings, 'Interpreter', 'none')
+    
+    figure;
+    semilogy(1:length(tesss),tesss)
+    title('Suma deceselor Europa ')
+    xticks(0:5:length(dat))
+    legend('Suma deces pe Europa')
+    hold off
+end
 
 
 
@@ -365,7 +388,7 @@ hold off
 %%
 
 
-% scipt matlab pt infromatii comune fata de cele de pe 
+% scipt matlab pt infromatii comune fata de cele de pe
 % https://www.cnscbt.ro/index.php/analiza-cazuri-confirmate-covid19
 
 
@@ -373,6 +396,6 @@ hold off
 
 
 % worldmeter
-% 
+%
 % marti seara
 % spania,italia,uk,franta,elvetia,germania,[austria,ungaria,israel],usa,portugalia
