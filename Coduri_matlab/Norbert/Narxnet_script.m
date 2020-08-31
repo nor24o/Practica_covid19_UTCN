@@ -1,9 +1,8 @@
     %% Narxnet
-    u=geo_ro_timp';
-    y=geo_ro_cazuri_totale';
-
-    u_org=geo_ro_timp';
-    y_org=geo_ro_cazuri_totale';
+    u=input;
+    y=judete_target(:,1:length(x));
+    u_org=input;
+    y_org=judete_target(:,1:length(x));
 
     y = con2seq(y);
     u = con2seq(u);
@@ -23,20 +22,34 @@
 
    %% ?
 
-    pt=p(:,1:1:100)
-    yp = sim(narx_net,p,Pi);
-    
-    yp2 = padarray(cell2mat(yp)',2,NaN,'pre');
-    figure;
-    
-    plot(u_org(1:195),cell2mat(yp2)','r')
-    hold on
-    plot(u_org,y_org,'b')
-    legend( 'org','narxnet');
 
-    %%
-    nrx=sp2narx(narx_net)
-    timp=0:1:400;
-    yp3 = sim(nrx,timp);
-
-    plot(timp,yp3,'r')
+    yp = sim(narx_net,p2,Pi);
+    
+    y2 = padarray(cell2mat(yp)',2,NaN,'pre')';
+    
+       dat=nr_de_reproductie_virus_ziua(1,1:length(x))
+%
+     LegendsStrings = cell(length(nume_jud),1)
+	 figure;
+     for i=1:length(nume_jud)
+         LegendsStrings{i} = string(nume_jud(i));
+         hold on
+         semilogy(dat,y2(i,:))
+     end
+     title('Cazuri pe judet date de pe geo-spatial Retea Neuronala fitnet ')
+     hold off
+     xticks(0:5:length(dat))
+     legend(LegendsStrings, 'Interpreter', 'none')
+  % nesimulat   
+   figure;
+   
+      LegendsStrings = cell(length(nume_jud),1)
+     for i=1:length(nume_jud)
+         LegendsStrings{i} = string(nume_jud(i));
+         hold on
+         semilogy(dat,t(i,:))
+     end
+     title('Cazuri pe judet date de pe geo-spatial Initial ')
+     hold off
+     xticks(0:5:length(dat))
+     legend(LegendsStrings, 'Interpreter', 'none')

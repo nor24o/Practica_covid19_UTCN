@@ -31,45 +31,38 @@ geo_ro_rata_de_crestere=Cazuri(:,8);
 geo_ro_frecventa_pe_grupe_varste=Cazuri(:,9);
 geo_ro_frecventa_pe_grupe_frecventa=Cazuri(:,10);
 
-%%
-            try
-                Num_reprod = xlsread( strcat(path,'Norbert\Numarul_de_reproductie_Sars-cov.xlsx' )) ;
-            catch
-                [filename, filepath] = uigetfile( 'Numarul_de_reproductie_Sars-cov*.xlsx' ) ;
-                full_filename = fullfile(filepath, filename);
-                Num_reprod = xlsread( strcat(full_filename)) ;
-                Folder = filepath(1:end-8)
-                path=Folder;             
-            end
-            
-            try
-            [numbers, TEXT, everything]  = xlsread( strcat(path,'Norbert\Cazuri_pe_judete_A-Z_tr.xlsx' )) ;
-            yu=TEXT;
-            catch
-                [filename, filepath] = uigetfile( 'Cazuri_pe_judete_A-Z_tr*.xlsx' ) ;
-                full_filename = fullfile(filepath, filename);
-                [numbers, TEXT, everything] = xlsread( strcat(full_filename)) ;
-                Folder = filepath(1:end-8)
-                path=Folder;             
-            end
-numbers(1,:)=[];
-num_target=numbers(:,1:178);
-num_targ_test=numbers(:,1:100);
+%% Numarul de reproducere Sars-cov-2
 
-nr_de_reproductie_virus_ziua=Num_reprod(1,:);
-nr_de_reproductie_virus_R=Num_reprod(2,:);
-nr_de_reproductie_virus_R25=Num_reprod(2,:);
-nr_de_reproductie_virus_R75=Num_reprod(3,:);
-nr_de_reproductie_virus_R05=Num_reprod(4,:);
-nr_de_reproductie_virus_R95=Num_reprod(5,:);
-nr_de_reproductie_virus_R025=Num_reprod(6,:);
-nr_de_reproductie_virus_R975=Num_reprod(7,:);
+        Num_reprod = xlsread( strcat(path,'Norbert\Numarul_de_reproductie_Sars-cov.xlsx' )) ;
 
-Num_reprod(1,:)=[];
-input=Num_reprod;
-input_test=input(:,1:100);
+        numarul_de_judete_de_la   =15;
+        numarul_de_judete_pana_la = 20;    
+        
+        [numbers, TEXT, everything]  = xlsread( strcat(path,'Norbert\Cazuri_pe_judete_A-Z_tr.xlsx' )) ;
+        numbers(1,:)=[];
+        TEXT(1:2,:)=[];
+        nume_jud=TEXT(numarul_de_judete_de_la:numarul_de_judete_pana_la,1);
 
+        nr_de_reproductie_virus_ziua=Num_reprod(1,:);
+        nr_de_reproductie_virus_R=Num_reprod(2,:);
+        nr_de_reproductie_virus_R25=Num_reprod(2,:);
+        nr_de_reproductie_virus_R75=Num_reprod(3,:);
+        nr_de_reproductie_virus_R05=Num_reprod(4,:);
+        nr_de_reproductie_virus_R95=Num_reprod(5,:);
+        nr_de_reproductie_virus_R025=Num_reprod(6,:);
+        nr_de_reproductie_virus_R975=Num_reprod(7,:);
 
+        Num_reprod(1,:)=[];
+         %input
+        judete_target=numbers(numarul_de_judete_de_la:numarul_de_judete_pana_la,:);
+        input=Num_reprod;
+        
+        %verificare
+        num_targ_test=numbers(:,1:100);
+
+        input_test=input(:,1:100);
+
+        clear filename Folder full_filename
 
 %% cazuri saptamanale
 

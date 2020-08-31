@@ -1,8 +1,8 @@
 
 % Director principal fisiere
 
-           path='C:\Users\horva\Desktop\Practica\Practica_covid19_UTCN\Databaser\';
-
+           path='C:\Users\horva\Desktop\Practica\Practica_covid19_UTCN\Database\';
+%%
 % incarcare date pentru https://covid19.geo-spatial.org/
 
             try
@@ -31,14 +31,41 @@ geo_ro_rata_de_crestere=Cazuri(:,8);
 geo_ro_frecventa_pe_grupe_varste=Cazuri(:,9);
 geo_ro_frecventa_pe_grupe_frecventa=Cazuri(:,10);
 
-nr_de_reproductie_virus_R=Cazuri(:,11);
-nr_de_reproductie_virus_R25=Cazuri(:,12);
-nr_de_reproductie_virus_R75=Cazuri(:,13);
-nr_de_reproductie_virus_R05=Cazuri(:,14);
-nr_de_reproductie_virus_R95=Cazuri(:,15);
-nr_de_reproductie_virus_R025=Cazuri(:,16);
-nr_de_reproductie_virus_R975=Cazuri(:,17);
-% cazuri saptamanale
+%% Numarul de reproducere Sars-cov-2
+
+        Num_reprod = xlsread( strcat(path,'Norbert\Numarul_de_reproductie_Sars-cov.xlsx' )) ;
+
+
+        numarul_de_judete_pana_la = 5;    
+        
+        [numbers, TEXT, everything]  = xlsread( strcat(path,'Norbert\Cazuri_pe_judete_A-Z_tr.xlsx' )) ;
+        numbers(1,:)=[];
+        TEXT(2,:)=[];
+        nume_jud=TEXT(1:numarul_de_judete_pana_la,1);
+
+        nr_de_reproductie_virus_ziua=Num_reprod(1,:);
+        nr_de_reproductie_virus_R=Num_reprod(2,:);
+        nr_de_reproductie_virus_R25=Num_reprod(2,:);
+        nr_de_reproductie_virus_R75=Num_reprod(3,:);
+        nr_de_reproductie_virus_R05=Num_reprod(4,:);
+        nr_de_reproductie_virus_R95=Num_reprod(5,:);
+        nr_de_reproductie_virus_R025=Num_reprod(6,:);
+        nr_de_reproductie_virus_R975=Num_reprod(7,:);
+
+        Num_reprod(1,:)=[];
+         %input
+        judete_target=numbers(1:numarul_de_judete_pana_la,:);
+        input=Num_reprod;
+        
+        %verificare
+        num_targ_test=numbers(:,1:100);
+
+        input_test=input(:,1:100);
+
+        clear filename Folder full_filename
+
+%% cazuri saptamanale
+
 x=Cazuri(:,18);
 geo_ro_spatial_cazuri_pe_sapt = x(~isnan(x));
 
@@ -55,8 +82,8 @@ geo_ro_spatial_cazuri_pe_sapt = x(~isnan(x));
             end
 
 cns_cazuri_cazuri_pe_sapt=cnstbt(:,1);
-%%
-    
+
+%%   
 % date de pe worldomeres 
             try
                 AU_HU_IS = xlsread( strcat(path,'Norbert\Australia_Ungaria_Israel_worldometer.xlsx' )) ;
@@ -110,28 +137,10 @@ wo_Romania_cazuri_noi_pe_sapt = x(~isnan(x));
 clear('AU_HU_IS','Cazuri','x','cnstbt','filename','filepath','Folder','full_filename');
 
 
-%% Cazuri pe judet date de pe geo-spatial
- try
-     [numbers, TEXT, everything]  = xlsread( strcat(path,'Norbert\Cazuri_pe_judete_A-Z_tr.xlsx' )) ;
- catch
-     [filename, filepath] = uigetfile( 'Cazuri_pe_judete_A-Z_tr*.xlsx' ) ;
-     full_filename = fullfile(filepath, filename);
-     [numbers, TEXT, everything] = xlsread( full_filename) ;
-     Folder = filepath(1:end-8)
-     path=Folder;
- end
+
  
  
- %% Cazuri Tari Europa
-  try
-     Europa =  xlsread( strcat(path,'Cornestean\Europa_cazuri_confirmate.xlsx' )) ;
- catch
-     [filename, filepath] = uigetfile( 'Cazuri_pe_judete_A-Z_tr*.xlsx' ) ;
-     full_filename = fullfile(filepath, filename);
-     Europa = xlsread( full_filename) ;
-     Folder = filepath(1:end-8)
-     path=Folder;
- end
+
  
 
 
