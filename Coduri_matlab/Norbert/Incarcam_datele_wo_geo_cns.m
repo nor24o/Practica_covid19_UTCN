@@ -2,6 +2,7 @@
 % Director principal fisiere
 
            path='C:\Users\horva\Desktop\Practica\Practica_covid19_UTCN\Database\';
+           path_img='C:\Users\horva\Desktop\Practica\Practica_covid19_UTCN\Coduri_matlab\Norbert\img\';
 %%
 % incarcare date pentru https://covid19.geo-spatial.org/
 
@@ -31,11 +32,11 @@ geo_ro_rata_de_crestere=Cazuri(:,8);
 geo_ro_frecventa_pe_grupe_varste=Cazuri(:,9);
 geo_ro_frecventa_pe_grupe_frecventa=Cazuri(:,10);
 
-%% Numarul de reproducere Sars-cov-2
+%% incarcam Numarul de reproducere Sars-cov-2
 
         Num_reprod = xlsread( strcat(path,'Norbert\Numarul_de_reproductie_Sars-cov.xlsx' )) ;
 
-        numarul_de_judete_de_la   =15;
+        numarul_de_judete_de_la   =10;
         numarul_de_judete_pana_la = 20;    
         
         [numbers, TEXT, everything]  = xlsread( strcat(path,'Norbert\Cazuri_pe_judete_A-Z_tr.xlsx' )) ;
@@ -66,7 +67,7 @@ geo_ro_frecventa_pe_grupe_frecventa=Cazuri(:,10);
 
 %% cazuri saptamanale
 
-x=Cazuri(:,18);
+x=Cazuri(:,11);
 geo_ro_spatial_cazuri_pe_sapt = x(~isnan(x));
 
 

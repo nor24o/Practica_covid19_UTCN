@@ -1,8 +1,11 @@
+clear net net2
 
     %%   Create an Elman backpropagation network Decese totale Romania
 
     P=geo_ro_timp';
     T=geo_ro_decese';
+    %P=P(1:1:100);
+    %T=T(1:1:100);
     % occur in a row.  First we arrange these values as sequences.
 
     Pseq = con2seq(P);
@@ -17,7 +20,7 @@
 
     net2 = train(net,Pseq,Tseq);
 
-    u=0:1: 600;
+    u=100:1: 600;
     uo= con2seq(u);
     y=sim(net2,uo) ;
     z = seq2con(y);

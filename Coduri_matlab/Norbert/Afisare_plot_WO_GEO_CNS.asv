@@ -22,11 +22,12 @@ plot(geo_ro_timp,[geo_ro_nr_teste,geo_ro_cazuri_unice])
 legend('nr teste','cazuri unice','Location','northwest')
 set (gca,'Position',[.042 .07 1 .95]); 
 saveas(gcf,strcat(path_img,'Nr teste ,cazuri unice_geo.png' ))
-%%
+
 %Rata de crestere
 figure('Name','Rata de crestere')
 plot(geo_ro_timp,geo_ro_rata_de_crestere)
 title('Rata de crestere')
+set (gca,'Position',[.042 .07 1 .95]); 
 saveas(gcf,strcat(path_img,'Rata de crestere_geo.png' ))
 
 %nr_de_reproductie_virus
@@ -276,7 +277,7 @@ end
     title('Suma cazurilor ')
     xticks(0:5:length(dat))
     legend('Suma judetelor','Location','northwest')
-    saveas(gcf,strcat(path_img,'Suma cazurilor pe judet.png' ))
+    saveas(gcf,strcat(path_img,'Suma cazurilor.png' ))
 
 %% Cazuri Tari Europa
 try
@@ -312,7 +313,7 @@ end
     legend(LegendsStrings, 'Interpreter', 'none','Location','northwest')
         set(gcf,'position',[1000,500,1360,720])
     set(gca,'Position',[.042 .07 .95 .90]); 
-    saveas(gcf,strcat(path_img,'Cazuri Tari din Europa.png' ))
+    saveas(gcf,strcat(path_img,'Cazuri Tari Europa.png' ))
     figure;
     semilogy(1:length(tesss),tesss)
     title('Suma cazurilor Europa ')

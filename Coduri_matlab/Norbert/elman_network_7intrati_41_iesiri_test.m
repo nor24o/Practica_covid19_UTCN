@@ -3,7 +3,7 @@
 clear net net2
 %%
 P=input;
-T=judete_target(:,1:length(x));
+T=judete_target(:,1:length(P));
 % occur in a row.  First we arrange these values as sequences.
 
 Pseq = con2seq(P);
@@ -29,10 +29,11 @@ view(net2)
 
 
 
-%simulat
-y2=sim(net2,x);
-%
-     dat=nr_de_reproductie_virus_ziua(1,1:length(x))
+%% simulat
+y2=sim(net2,Pseq);
+y2=cell2mat(y2);
+%%
+     dat=nr_de_reproductie_virus_ziua(1,1:length(P))
 %
      LegendsStrings = cell(length(nume_jud),1)
 	 figure;
@@ -52,7 +53,7 @@ y2=sim(net2,x);
      for i=1:length(nume_jud)
          LegendsStrings{i} = string(nume_jud(i));
          hold on
-         semilogy(dat,t(i,:))
+         semilogy(dat,T(i,:))
      end
      title('Cazuri pe judet date de pe geo-spatial Initial ')
      hold off

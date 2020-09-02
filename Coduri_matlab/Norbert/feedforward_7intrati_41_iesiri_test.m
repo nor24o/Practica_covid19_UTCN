@@ -1,11 +1,12 @@
 %% Feedforward
 clear net net2
-%%
+%
 x = input;
 t = judete_target(:,1:length(x));
 
 % Create a Fitting Network
 hiddenLayerSize = 13;
+trainFcn='trainlm';
 net = feedforwardnet(hiddenLayerSize,trainFcn);
 % Setup Division of Data for Training, Validation, Testing
 net.divideParam.trainRatio = 70/100;
